@@ -4,11 +4,14 @@ using System.Collections;
 public class CharacterMovement : MonoBehaviour
 {
     public float Speed;
-    public string XAxis, YAxis, ThrowAxis;
+	public string XAxis, YAxis, ThrowAxis, ActionAxis;
 
     public Vector3 AimDirection { get { return GetComponentInChildren<AimSight>().AimDirection; } }
 
-    private bool _withGun;
+	public bool HasGun = false;
+	public bool IsSnapped = false;
+    
+	private bool _withGun;
     private GameObject _gun;
 
     void Start()
@@ -19,8 +22,10 @@ public class CharacterMovement : MonoBehaviour
 
     void Update()
     {
-        this.rigidbody2D.velocity = Input.GetAxis(XAxis) * Speed * Vector2.right + Input.GetAxis(YAxis) * Speed * Vector2.up;
-        if (Input.GetAxis(ThrowAxis) > 0)
+        if(!IsSnapped)
+			this.rigidbody2D.velocity = Input.GetAxis(XAxis) * Speed * Vector2.right + Input.GetAxis(YAxis) * Speed * Vector2.up;
+        
+		if (Input.GetAxis(ThrowAxis) > 0)
         {
             if (_withGun)
                 Throw();
