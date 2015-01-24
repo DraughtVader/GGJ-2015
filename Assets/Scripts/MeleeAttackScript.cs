@@ -10,17 +10,9 @@ public class MeleeAttackScript : MonoBehaviour {
 	void Start () {
         _attackPosition = transform.GetChild(2);
 	}
-	
-	// Update is called once per frame
-	void Update () 
-    {
-        if (Input.GetAxis(MeleeAxis) > 0 )
-        {
-            Melee();
-        }
-	}
 
-    void Melee()
+
+    /*void Melee()
     {
         var enemies = Physics2D.OverlapCircleAll(this.transform.position, 45, 1 << LayerMask.NameToLayer("Enemy"));
         foreach (var item in enemies)
@@ -31,5 +23,5 @@ public class MeleeAttackScript : MonoBehaviour {
                 item.GetComponent<MeleeEnemyMovement>().Stun();
             item.rigidbody2D.AddForce((item.transform.position - this.transform.position).normalized * 100, ForceMode2D.Impulse);
         }
-    }
+    }*/
 }

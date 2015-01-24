@@ -9,7 +9,6 @@ public class MeleeEnemyMovement : MonoBehaviour {
     private Animator _anim;
     private string _playerID = "";
     private bool _isStunned;
-
     public float Speed = 10;
 	void Start () 
     {
@@ -21,9 +20,7 @@ public class MeleeEnemyMovement : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
     {
-        if (_isStunned)
-            return;
-
+        rigidbody2D.isKinematic = false;
         if (_isAttacking)
         {
             rigidbody2D.velocity = Vector2.zero;
@@ -35,8 +32,15 @@ public class MeleeEnemyMovement : MonoBehaviour {
     void GoAfterPlayer(Vector3 position)
     {
         rigidbody2D.velocity = (position - this.transform.position).normalized * Speed;
-        var angle = Mathf.Atan2(rigidbody2D.velocity.y, rigidbody2D.velocity.x) * Mathf.Rad2Deg;
-        rigidbody2D.MoveRotation(angle);
+
+        if (rigidbody2D.velocity.y > 0)
+        {
+            _anim.Play("EnemyBack");
+        }
+        else
+        {
+            _anim.Play("EnemyFront");
+        }
     }
 
     Vector3 ClosestPlayer()
@@ -54,7 +58,14 @@ public class MeleeEnemyMovement : MonoBehaviour {
             _anim.Play("EnemyAttacking");
             _isAttacking = true;
             _playerID = coll.gameObject.name;
+
+            if (rigidbody2D.velocity.y < 0)
+                transform.localScale = new Vector3(1, -1, 1) * 2;
+            else
+                transform.localScale = Vector3.one * 2;
+            
         }
+       
     }
 
     void OnTriggerExit2D(Collider2D coll)
@@ -64,6 +75,7 @@ public class MeleeEnemyMovement : MonoBehaviour {
             _anim.Play("Idle");
             _isAttacking = false;
             _playerID = "";
+            transform.localScale = Vector3.one * 2;
         }
     }
 
@@ -72,20 +84,5 @@ public class MeleeEnemyMovement : MonoBehaviour {
         if (_playerID == "")
             return;
         GameObject.Find(_playerID + "Health").GetComponent<Text>().text = _playerID + ": " + (GameObject.Find(_playerID).GetComponent<PlayerStats>().Health -= 20);
-    }
-
-    public void Stun()
-    {
-        StartCoroutine(Stunned());
-    }
-
-    IEnumerator Stunned()
-    {
-        _isStunned = true;
-        _anim.Play("EnemyStunned");
-        this.rigidbody2D.velocity = Vector2.zero;
-        yield return new WaitForSeconds(3);
-        _isStunned = false;
-        _anim.Play("Idle");
     }
 }
