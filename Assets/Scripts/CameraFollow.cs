@@ -30,6 +30,14 @@ public class CameraFollow : MonoBehaviour {
 		if(_playerDistance >= CameraMinSize && _playerDistance <= CameraMaxSize)
 		gameObject.GetComponent<Camera>().orthographicSize = _playerDistance;
 
+		//gameObject.GetComponent<BoxCollider2D>().size.x = gameObject.GetComponent<Camera>().orthographicSize * 4.0f;
+		//gameObject.GetComponent<BoxCollider2D>().size.y = gameObject.GetComponent<Camera>().orthographicSize * 2.0f;
+
+		gameObject.GetComponent<BoxCollider2D>().size = new Vector2(gameObject.GetComponent<Camera>().orthographicSize * 4.5f,
+		                                                            gameObject.GetComponent<Camera>().orthographicSize * 1.8f);
+
+		Debug.Log(_playerDistance);
+
 		this.transform.position = new Vector3(_midpoint.x, _midpoint.y, -10.0f);
 	}
 }
