@@ -15,6 +15,10 @@ public class CrossHair : MonoBehaviour
 
     void Update()
     {
-        this.transform.position = transform.parent.position + _aimSight.AimDirection.normalized * 50;
+        //this.transform.position = transform.parent.position + _aimSight.AimDirection.normalized * 50;
+
+        var angle = Mathf.Atan2(_aimSight.AimDirection.y, _aimSight.AimDirection.x) * Mathf.Rad2Deg;
+        GameObject.Find("Gun").transform.localEulerAngles = new Vector3(0,0, angle);
+
     }
 }

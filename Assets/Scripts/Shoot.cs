@@ -25,7 +25,12 @@ public class Shoot : MonoBehaviour {
 			ShootBullet();
 			_canShoot = false;
 			StartCoroutine(FireDelay(ShootDelay));
+            GameObject.Find("Gun").GetComponent<Animator>().Play("Shoot");
 		}
+        else
+        {
+         //   GameObject.Find("Gun").GetComponent<Animator>().Play("Idle");
+        }
 	}
 
 	public void ShootBullet ()
