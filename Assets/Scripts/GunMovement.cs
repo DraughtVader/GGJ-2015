@@ -26,6 +26,8 @@ public class GunMovement : MonoBehaviour
     void OnTriggerEnter2D(Collider2D coll)
     {
         if (coll.gameObject.tag == "Player")
-            coll.gameObject.GetComponent<CharacterMovement>().WithGun = true;
+        {
+            coll.gameObject.GetComponent<CharacterMovement>().WithGun = coll.gameObject.GetComponent<CharacterMovement>().IsSnapped = true;
+        }
     }
 }

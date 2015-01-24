@@ -14,10 +14,12 @@ public class CharacterMovement : MonoBehaviour
     private bool _aiming;
     private GameObject _gun;
     private float _throwForce;
+    private Animator _anim;
 
     void Start()
     {
         _gun = GameObject.Find("Gun");
+        _anim = GetComponent<Animator>();
     }
 
     void Update()
@@ -25,15 +27,46 @@ public class CharacterMovement : MonoBehaviour
         Throw();
 
         if(!IsSnapped)
+        {
 			this.rigidbody2D.velocity = Input.GetAxis(XAxis) * Speed * Vector2.right + Input.GetAxis(YAxis) * Speed * Vector2.up;
-		if(IsSnapped)
-			this.rigidbody2D.velocity = new Vector2(0.0f, 0.0f);
+            if (WithGun)
+            {
+                this.rigidbody2D.velocity *= 0.1f;
+            }
+        }
 
         if(WithGun)
 			_gun.transform.position = this.transform.position;
 
-        var angle = Mathf.Atan2(rigidbody2D.velocity.y, rigidbody2D.velocity.x) * Mathf.Rad2Deg;
-        rigidbody2D.MoveRotation(angle);
+		if(IsSnapped)
+        {
+			this.rigidbody2D.velocity = new Vector2(0.0f, 0.0f);
+            _anim.Play("WalkFront");
+            return;
+        }
+
+        this.transform.localScale = CalcScale();
+    }
+
+    private Vector3 CalcScale()
+    {
+        var scale = this.transform.localScale;
+        if (Mathf.Abs(rigidbody2D.velocity.x) >= Mathf.Abs(rigidbody2D.velocity.y))
+        {
+            if (rigidbody2D.velocity.x > 0)
+                scale.x = -Mathf.Abs(this.transform.localScale.x);
+            else
+                scale.x = Mathf.Abs(this.transform.localScale.x);
+            _anim.Play("WalkSide");
+        }
+        else
+        {
+            if (rigidbody2D.velocity.y > 0)
+                _anim.Play("WalkBack");
+            else
+                _anim.Play("WalkFront");
+        }
+        return scale;
     }
 
     public void Throw()
@@ -48,6 +81,7 @@ public class CharacterMovement : MonoBehaviour
         {
             StopCoroutine("AimThrow");
             _gun.GetComponent<GunMovement>().Velocity = AimDirection * _throwForce;
+            IsSnapped = false;
             this.GetComponentInChildren<AimSight>().AimForce = 0f;
             _aiming = false;
             WithGun = false;

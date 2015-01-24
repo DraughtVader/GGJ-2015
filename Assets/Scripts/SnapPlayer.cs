@@ -21,7 +21,6 @@ public class SnapPlayer : MonoBehaviour {
 
 	void OnTriggerStay2D(Collider2D player)
 	{
-		Debug.Log(Input.GetAxisRaw("Action1"));
 		if(player.tag == "Player")
 		{
 			if((player.GetComponent<CharacterMovement>().WithGun) && (player.GetComponent<CharacterMovement>().IsSnapped == false) && (Input.GetAxisRaw(player.GetComponent<CharacterMovement>().ActionAxis) > 0) && !_buttonPressed)

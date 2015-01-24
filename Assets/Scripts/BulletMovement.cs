@@ -4,8 +4,6 @@ using System.Collections;
 public class BulletMovement : MonoBehaviour {
 
 	public float BulletSpeed;
-	public float BulletLife;
-
 	[HideInInspector]
 	public Vector3 Direction;
 	// Use this for initialization
@@ -17,10 +15,13 @@ public class BulletMovement : MonoBehaviour {
 	void Update () 
 	{
 		this.transform.position += Direction * BulletSpeed * Time.deltaTime;
-		BulletLife -= Time.deltaTime;
-
-		if(BulletLife <= 0.0f)
-			GameObject.Destroy(this.gameObject);
-		//Debug.Log(Direction);
 	}
+
+    void OnTriggerEnter2D(Collider2D coll)
+    {
+        if (coll.tag == "Enemy")
+        {
+            GameObject.Destroy(coll.gameObject);
+        }
+    }
 }

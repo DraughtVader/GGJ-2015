@@ -31,7 +31,6 @@ public class Shoot : MonoBehaviour {
 	public void ShootBullet ()
 	{
 		_shootDirection = GetComponentInParent<AimSight>().AimDirection;
-		Debug.Log (_shootDirection);
 		Instantiate(Bullet, GetComponentInParent<Transform>().position, Quaternion.identity);
 		Bullet.GetComponent<BulletMovement>().Direction = _shootDirection;
 		AmmoCount -= 1.0f;
