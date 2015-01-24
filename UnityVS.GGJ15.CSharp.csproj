@@ -55,13 +55,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\AimSight.cs" />
+    <Compile Include="Assets\Scripts\BulletMovement.cs" />
     <Compile Include="Assets\Scripts\CharacterMovement.cs" />
+    <Compile Include="Assets\Scripts\CrossHair.cs" />
+    <Compile Include="Assets\Scripts\EnemyProjectileScript.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\GunMovement.cs" />
     <Compile Include="Assets\Scripts\MeleeEnemyMovement.cs" />
     <Compile Include="Assets\Scripts\PlayerStats.cs" />
     <Compile Include="Assets\Scripts\RangedEnemyMovement.cs" />
+    <Compile Include="Assets\Scripts\Shoot.cs" />
     <Compile Include="Assets\Scripts\SnapPlayer.cs" />
+    <Compile Include="Assets\Scripts\TurretCrossHair.cs" />
     <Compile Include="Assets\Scripts\TurretShoot.cs" />
     <None Include="\Applications\Unity\Unity.app\Contents\UnityExtensions\Unity\GUISystem\4.6.1\UnityEngine.UI.dll" />
   </ItemGroup>
