@@ -24,6 +24,7 @@ public class BulletMovement : MonoBehaviour {
             coll.rigidbody2D.velocity = Vector2.zero;
             coll.GetComponent<MeleeEnemyMovement>().Dead = true;
             coll.GetComponent<Animator>().Play("EnemyDead");
+            EnemySpawnerScript.TotalNumber--;
         }
     }
 }
