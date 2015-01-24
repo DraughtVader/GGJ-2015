@@ -63,6 +63,8 @@ public class RangedEnemyMovement : MonoBehaviour {
         {
             var projectile = GameObject.Instantiate(Projectile, this.transform.position, this.transform.rotation) as GameObject;
             projectile.rigidbody2D.velocity = (_closestPlayerPos - (Vector2)this.transform.position).normalized * BulletSpeed;
+            var angle = Mathf.Atan2(projectile.rigidbody2D.velocity.y, projectile.rigidbody2D.velocity.x) * Mathf.Rad2Deg;
+            rigidbody2D.MoveRotation(angle);
             _shotCoolDown = 2;
         }
         else
