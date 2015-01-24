@@ -88,7 +88,7 @@ GameObject:
   - 114: {fileID: 307202845}
   m_Layer: 0
   m_Name: Player1
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -110,6 +110,10 @@ MonoBehaviour:
   XAxis: Horizontal1
   YAxis: Vertical1
   ThrowAxis: Throw1
+  ActionAxis: 
+  HasGun: 0
+  IsSnapped: 0
+  WithGun: 1
 --- !u!61 &307202846
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -434,7 +438,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &825348143
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -452,6 +456,10 @@ MonoBehaviour:
   XAxis: Horizontal2
   YAxis: Vertical2
   ThrowAxis: Throw2
+  ActionAxis: 
+  HasGun: 0
+  IsSnapped: 0
+  WithGun: 0
 --- !u!61 &825348144
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -610,6 +618,10 @@ Prefab:
       propertyPath: MaxThrowForce
       value: 300
       objectReference: {fileID: 0}
+    - target: {fileID: 156526, guid: 9c8fbb59f0a70a04bb16cb542e4ed451, type: 2}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9c8fbb59f0a70a04bb16cb542e4ed451, type: 2}
   m_RootGameObject: {fileID: 307202844}
@@ -625,6 +637,7 @@ GameObject:
   - 4: {fileID: 1616786914}
   - 212: {fileID: 1616786913}
   - 114: {fileID: 1616786915}
+  - 61: {fileID: 1616786916}
   m_Layer: 0
   m_Name: Gun
   m_TagString: Untagged
@@ -677,8 +690,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6aeb46b038c1b042b374a2769a21e3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FrictionForce: 10
+  FrictionForce: 2
   Velocity: {x: 0, y: 0, z: 0}
+  Held: 1
+--- !u!61 &1616786916
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1616786912}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Size: {x: 1, y: 1}
+  m_Center: {x: 0, y: 0}
 --- !u!1001 &1660271441
 Prefab:
   m_ObjectHideFlags: 0
@@ -756,6 +781,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 156526, guid: 9c8fbb59f0a70a04bb16cb542e4ed451, type: 2}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11456526, guid: 9c8fbb59f0a70a04bb16cb542e4ed451, type: 2}
+      propertyPath: WithGun
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

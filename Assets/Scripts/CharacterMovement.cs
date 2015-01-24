@@ -4,20 +4,20 @@ using System.Collections;
 public class CharacterMovement : MonoBehaviour
 {
     public float Speed, MaxThrowForce;
-    public string XAxis, YAxis, ThrowAxis;
+    public string XAxis, YAxis, ThrowAxis, ActionAxis;
     public bool HasGun = false;
     public bool IsSnapped = false;
+    public bool WithGun = true;
 
     public Vector3 AimDirection { get { return GetComponentInChildren<AimSight>().AimDirection; } }
 
-    private bool _withGun, _aiming;
+    private bool _aiming;
     private GameObject _gun;
     private float _throwForce;
 
     void Start()
     {
         _gun = GameObject.Find("Gun");
-        _withGun = true;
     }
 
     void Update()
@@ -27,24 +27,24 @@ public class CharacterMovement : MonoBehaviour
         if(!IsSnapped)
 			this.rigidbody2D.velocity = Input.GetAxis(XAxis) * Speed * Vector2.right + Input.GetAxis(YAxis) * Speed * Vector2.up;
 
-        if (_withGun)
+        if (WithGun)
             _gun.transform.position = this.transform.position;
     }
 
     public void Throw()
     {
-        if (Input.GetAxis(ThrowAxis) > 0 && _withGun && !_aiming)
+        if (Input.GetAxis(ThrowAxis) > 0 && WithGun && !_aiming)
         {
             StartCoroutine("AimThrow");
             _aiming = true;
         }
 
-        if (Input.GetAxis(ThrowAxis) == 0 && _withGun && _aiming)
+        if (Input.GetAxis(ThrowAxis) == 0 && WithGun && _aiming)
         {
             StopCoroutine("AimThrow");
             _gun.GetComponent<GunMovement>().Velocity = AimDirection * _throwForce;
             _aiming = false;
-            _withGun = false;
+            WithGun = false;
         }
     }
 

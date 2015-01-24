@@ -7,6 +7,8 @@ public class GunMovement : MonoBehaviour
     [HideInInspector]
     public Vector3 Velocity;
 
+    public bool Held = true;
+
     void Start()
     {
 
@@ -19,5 +21,11 @@ public class GunMovement : MonoBehaviour
             Velocity += -FrictionForce * Velocity.normalized;
             this.transform.position += Velocity * Time.deltaTime;
         }
+    }
+
+    void OnTriggerEnter2D(Collider2D coll)
+    {
+        if (coll.gameObject.tag == "Player")
+            coll.gameObject.GetComponent<CharacterMovement>().WithGun = true;
     }
 }
