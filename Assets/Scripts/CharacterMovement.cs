@@ -90,17 +90,17 @@ public class CharacterMovement : MonoBehaviour
 
     IEnumerator AimThrow()
     {
-        float totalTime = 1.3f;
+        float totalTime = 2f;
         float t = 0f;
-        _throwForce = 0f;
+        _throwForce = 100f;
 
         while (true)
         {
             if (t > totalTime)
                 t = 0;
 
-            _throwForce = Mathf.Lerp(0, MaxThrowForce, t / totalTime);
-            this.GetComponentInChildren<AimSight>().AimForce = _throwForce;
+            _throwForce = Mathf.Lerp(500, MaxThrowForce, t / totalTime);
+            this.GetComponentInChildren<AimSight>().AimForce = _throwForce * 0.75f ;
             t += Time.deltaTime;
             yield return null;
         }
