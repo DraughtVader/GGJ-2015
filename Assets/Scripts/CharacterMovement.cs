@@ -26,6 +26,8 @@ public class CharacterMovement : MonoBehaviour
 
         if(!IsSnapped)
 			this.rigidbody2D.velocity = Input.GetAxis(XAxis) * Speed * Vector2.right + Input.GetAxis(YAxis) * Speed * Vector2.up;
+		if(IsSnapped)
+			this.rigidbody2D.velocity = new Vector2(0.0f, 0.0f);
 
         if (WithGun)
             _gun.transform.position = this.transform.position;
@@ -46,6 +48,7 @@ public class CharacterMovement : MonoBehaviour
         {
             StopCoroutine("AimThrow");
             _gun.GetComponent<GunMovement>().Velocity = AimDirection * _throwForce;
+            this.GetComponentInChildren<AimSight>().AimForce = 0f;
             _aiming = false;
             WithGun = false;
         }

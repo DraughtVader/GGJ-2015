@@ -4,9 +4,7 @@ using System.Collections;
 public class AimSight : MonoBehaviour
 {
     public string LookX, LookY;
-
     public Vector3 AimDirection;
-
     public float AimForce;
 
     private Transform _playerTransform;
@@ -14,6 +12,7 @@ public class AimSight : MonoBehaviour
     
     void Start()
     {
+        
         _line = GetComponent<LineRenderer>();
         _playerTransform = GetComponentInParent<Transform>();
     }
@@ -25,12 +24,12 @@ public class AimSight : MonoBehaviour
 
     void Aim()
     {
-        AimDirection = Input.GetAxis(LookX) * Vector2.right + Input.GetAxis(LookY) * Vector2.up;
+        var tempDir = Input.GetAxis(LookX) * Vector2.right + Input.GetAxis(LookY) * Vector2.up;
 
-        if (AimDirection.magnitude < 0.01f)
-            AimDirection = Vector2.up;
+        if (tempDir.magnitude > 0.1f)
+            AimDirection = tempDir;
 
         _line.SetPosition(0, _playerTransform.position);
-        _line.SetPosition(1, _playerTransform.position + AimDirection * AimForce * 0.5f);
+        _line.SetPosition(1, _playerTransform.position + AimDirection.normalized * AimForce * 0.5f);
     }
 }
