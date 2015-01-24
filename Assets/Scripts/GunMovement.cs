@@ -21,6 +21,11 @@ public class GunMovement : MonoBehaviour
             Velocity += -FrictionForce * Velocity.normalized;
             this.transform.position += Velocity * Time.deltaTime;
         }
+        if (!Held)
+            GetComponent<Animator>().Play("InFlight");
+        else
+            GetComponent<Animator>().Play("Idle");
+
     }
 
     void OnTriggerEnter2D(Collider2D coll)
@@ -28,6 +33,7 @@ public class GunMovement : MonoBehaviour
         if (coll.gameObject.tag == "Player")
         {
             coll.gameObject.GetComponent<CharacterMovement>().WithGun = coll.gameObject.GetComponent<CharacterMovement>().IsSnapped = true;
+            Held = true;
         }
     }
 }
