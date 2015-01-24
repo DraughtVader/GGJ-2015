@@ -401,7 +401,7 @@ InputManager:
     dead: .00100000005
     sensitivity: 3
     snap: 0
-    invert: 1
+    invert: 0
     type: 2
     axis: 3
     joyNum: 2
@@ -433,7 +433,7 @@ InputManager:
     dead: .00100000005
     sensitivity: 1000
     snap: 0
-    invert: 1
+    invert: 0
     type: 0
     axis: 4
     joyNum: 2

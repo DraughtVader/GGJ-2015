@@ -5,10 +5,8 @@ public class AimSight : MonoBehaviour
 {
     public string LookX, LookY;
 
-    [HideInInspector]
     public Vector3 AimDirection;
 
-    [HideInInspector]
     public float AimForce;
 
     private Transform _playerTransform;
