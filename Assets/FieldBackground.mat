@@ -6,8 +6,8 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: desert
-  m_Shader: {fileID: 4, guid: 0000000000000000f000000000000000, type: 0}
+  m_Name: FieldBackground
+  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: []
   m_CustomRenderQueue: -1
   m_SavedProperties:
@@ -17,8 +17,8 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 2800000, guid: b8ef4591005076644a79eed44b723236, type: 3}
-          m_Scale: {x: 192, y: 120}
+          m_Texture: {fileID: 2800000, guid: e03f095b5eaa24789834a29b3bdeb6f8, type: 3}
+          m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
         first:
@@ -48,16 +48,16 @@ Material:
         second: 0
       data:
         first:
+          name: _Shininess
+        second: .078125
+      data:
+        first:
           name: _EmissionLM
         second: 0
       data:
         first:
           name: _Parallax
         second: .0199999996
-      data:
-        first:
-          name: _Shininess
-        second: .078125
     m_Colors:
       data:
         first:
