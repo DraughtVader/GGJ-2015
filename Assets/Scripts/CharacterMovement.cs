@@ -43,6 +43,7 @@ public class CharacterMovement : MonoBehaviour
         {
             StopCoroutine("AimThrow");
             _gun.GetComponent<GunMovement>().Velocity = AimDirection * _throwForce;
+            this.GetComponentInChildren<AimSight>().AimForce = 0f;
             _aiming = false;
             WithGun = false;
         }

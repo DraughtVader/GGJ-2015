@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\AimSight.cs" />
     <Compile Include="Assets\Scripts\CharacterMovement.cs" />
+    <Compile Include="Assets\Scripts\CrossHair.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\GunMovement.cs" />
     <Compile Include="Assets\Scripts\GunStand.cs" />
