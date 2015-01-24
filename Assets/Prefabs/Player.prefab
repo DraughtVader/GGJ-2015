@@ -12,9 +12,10 @@ GameObject:
   - 50: {fileID: 5056526}
   - 61: {fileID: 6156526}
   - 114: {fileID: 11456526}
+  - 114: {fileID: 11483830}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -102,6 +103,9 @@ MonoBehaviour:
   XAxis: Horizontal1
   YAxis: Vertical1
   ThrowAxis: Throw1
+  ActionAxis: 
+  HasGun: 0
+  IsSnapped: 0
 --- !u!114 &11456528
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -116,6 +120,18 @@ MonoBehaviour:
   LookX: LookX1
   LookY: LookY1
   AimDirection: {x: 0, y: 0, z: 0}
+--- !u!114 &11483830
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 156526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d829c7d684141d46874d9c747b86a16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: 100
 --- !u!120 &12056526
 LineRenderer:
   m_ObjectHideFlags: 1
