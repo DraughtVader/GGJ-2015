@@ -67,7 +67,7 @@ public class MeleeEnemyMovement : MonoBehaviour {
     {
         if (_playerID == "")
             return;
-
+        print(_playerID);
         GameObject.Find(_playerID + "Health").GetComponent<Text>().text = _playerID + ": " + (GameObject.Find(_playerID).GetComponent<PlayerStats>().Health -= 20);
     }
 }
