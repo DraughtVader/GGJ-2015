@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GunStand : MonoBehaviour {
+public class TurretShoot : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
