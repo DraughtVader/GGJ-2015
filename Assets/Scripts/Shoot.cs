@@ -11,35 +11,32 @@ public class Shoot : MonoBehaviour {
 
 	private Vector3 _shootDirection;
 	private bool _canShoot = true;
-	// Use this for initialization
-	void Start () 
-	{
-//		GameObject.Find("AmmoCounter").GetComponent<Text>().text = "Turret Ammo: " + AmmoCount;
-	}
+
 	
 	// Update is called once per frame
 	void Update () 
-	{ 
-		if((Input.GetAxisRaw(Fire) > 0) && (this.GetComponentInParent<CharacterMovement>().IsSnapped) && (this.GetComponentInParent<CharacterMovement>().WithGun) && _canShoot)
+	{
+        if ((Input.GetAxisRaw(Fire) > 0) && (this.GetComponentInParent<CharacterMovement>().IsSnapped) && (this.GetComponentInParent<CharacterMovement>().HasGun) && _canShoot)
 		{
 			ShootBullet();
 			_canShoot = false;
 			StartCoroutine(FireDelay(ShootDelay));
-            GameObject.Find("Gun").GetComponent<Animator>().Play("Shoot");
 		}
-        else
-        {
-         //   GameObject.Find("Gun").GetComponent<Animator>().Play("Idle");
-        }
 	}
 
 	public void ShootBullet ()
 	{
 		_shootDirection = GetComponentInParent<AimSight>().AimDirection;
-		Instantiate(Bullet, GetComponentInParent<Transform>().position, Quaternion.identity);
-		Bullet.GetComponent<BulletMovement>().Direction = _shootDirection;
-		AmmoCount -= 1.0f;
-//		GameObject.Find("AmmoCounter").GetComponent<Text>().text = "Turret Ammo: " + AmmoCount;
+		var bullet = Instantiate(Bullet, GetComponentInParent<Transform>().position, Quaternion.identity) as GameObject;
+		bullet.GetComponent<BulletMovement>().Direction = _shootDirection;
+
+        var angle = Mathf.Atan2(_shootDirection.y, _shootDirection.x) * Mathf.Rad2Deg;
+        bullet.transform.Rotate(new Vector3(0, 0, angle));
+
+        if (_shootDirection.x < 0)
+        {
+            bullet.transform.localScale = new Vector3(1, -1, 1);
+        }
 	}
 
 	IEnumerator FireDelay(float delay)
