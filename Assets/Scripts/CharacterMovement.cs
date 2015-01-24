@@ -3,7 +3,7 @@ using System.Collections;
 
 public class CharacterMovement : MonoBehaviour
 {
-    public float Speed, MaxThrowForce;
+    public float Speed, MaxThrowForce, SlowSpeed;
     public string XAxis, YAxis, ThrowAxis, ActionAxis;
     public bool HasGun = false;
     public bool IsSnapped = false;
@@ -29,8 +29,8 @@ public class CharacterMovement : MonoBehaviour
 		if(IsSnapped)
 			this.rigidbody2D.velocity = new Vector2(0.0f, 0.0f);
 
-        if (WithGun)
-            _gun.transform.position = this.transform.position;
+        if(WithGun)
+			_gun.transform.position = this.transform.position;
 
         var angle = Mathf.Atan2(rigidbody2D.velocity.y, rigidbody2D.velocity.x) * Mathf.Rad2Deg;
         rigidbody2D.MoveRotation(angle);
