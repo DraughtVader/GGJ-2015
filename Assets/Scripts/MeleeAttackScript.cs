@@ -25,7 +25,6 @@ public class MeleeAttackScript : MonoBehaviour {
         var enemies = Physics2D.OverlapCircleAll(this.transform.position, 45, 1 << LayerMask.NameToLayer("Enemy"));
         foreach (var item in enemies)
         {
-            print(item.name);
             if (item.name == "RangedEnemy(Clone)")
                 item.GetComponent<RangedEnemyMovement>().Stun();
             else
