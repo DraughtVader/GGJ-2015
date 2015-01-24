@@ -8,6 +8,9 @@ public class AimSight : MonoBehaviour
     [HideInInspector]
     public Vector3 AimDirection;
 
+    [HideInInspector]
+    public float AimForce;
+
     private Transform _playerTransform;
     private LineRenderer _line;
     
@@ -26,6 +29,6 @@ public class AimSight : MonoBehaviour
     {
          AimDirection = Input.GetAxis(LookX) * Vector2.right + Input.GetAxis(LookY) * Vector2.up;
         _line.SetPosition(0, _playerTransform.position);
-        _line.SetPosition(1, _playerTransform.position + AimDirection * 300f);
+        _line.SetPosition(1, _playerTransform.position + AimDirection * AimForce * 0.5f);
     }
 }

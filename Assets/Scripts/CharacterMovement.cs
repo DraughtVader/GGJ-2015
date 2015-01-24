@@ -3,13 +3,14 @@ using System.Collections;
 
 public class CharacterMovement : MonoBehaviour
 {
-    public float Speed;
+    public float Speed, MaxThrowForce;
     public string XAxis, YAxis, ThrowAxis;
 
     public Vector3 AimDirection { get { return GetComponentInChildren<AimSight>().AimDirection; } }
 
-    private bool _withGun;
+    private bool _withGun, _aiming;
     private GameObject _gun;
+    private float _throwForce;
 
     void Start()
     {
@@ -20,13 +21,8 @@ public class CharacterMovement : MonoBehaviour
     void Update()
     {
         this.rigidbody2D.velocity = Input.GetAxis(XAxis) * Speed * Vector2.right + Input.GetAxis(YAxis) * Speed * Vector2.up;
-        if (Input.GetAxis(ThrowAxis) > 0)
-        {
-            if (_withGun)
-                Throw();
-            else
-                Catch();
-        }
+
+        Throw();
 
         if (_withGun)
             _gun.transform.position = this.transform.position;
@@ -34,13 +30,42 @@ public class CharacterMovement : MonoBehaviour
 
     public void Throw()
     {
-        _gun.GetComponent<GunMovement>().Velocity = AimDirection * 300f;
-        _withGun = false;
+        if (Input.GetAxis(ThrowAxis) > 0 && _withGun && !_aiming)
+        {
+            StartCoroutine("AimThrow");
+            _aiming = true;
+        }
+
+        if (Input.GetAxis(ThrowAxis) == 0 && _withGun && _aiming)
+        {
+            StopCoroutine("AimThrow");
+            _gun.GetComponent<GunMovement>().Velocity = AimDirection * _throwForce;
+            _aiming = false;
+            _withGun = false;
+        }
+    }
+
+    IEnumerator AimThrow()
+    {
+        float totalTime = 1.3f;
+        float t = 0f;
+        _throwForce = 0f;
+
+        while (true)
+        {
+            if (t > totalTime)
+                t = 0;
+
+            _throwForce = Mathf.Lerp(0, MaxThrowForce, t / totalTime);
+            this.GetComponentInChildren<AimSight>().AimForce = _throwForce;
+            t += Time.deltaTime;
+            yield return null;
+        }
     }
 
     void Catch()
     {
 
     }
-    
+
 }
