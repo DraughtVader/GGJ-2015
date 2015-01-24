@@ -5,6 +5,8 @@ public class CharacterMovement : MonoBehaviour
 {
     public float Speed, MaxThrowForce;
     public string XAxis, YAxis, ThrowAxis;
+    public bool HasGun = false;
+    public bool IsSnapped = false;
 
     public Vector3 AimDirection { get { return GetComponentInChildren<AimSight>().AimDirection; } }
 
@@ -20,9 +22,10 @@ public class CharacterMovement : MonoBehaviour
 
     void Update()
     {
-        this.rigidbody2D.velocity = Input.GetAxis(XAxis) * Speed * Vector2.right + Input.GetAxis(YAxis) * Speed * Vector2.up;
-
         Throw();
+
+        if(!IsSnapped)
+			this.rigidbody2D.velocity = Input.GetAxis(XAxis) * Speed * Vector2.right + Input.GetAxis(YAxis) * Speed * Vector2.up;
 
         if (_withGun)
             _gun.transform.position = this.transform.position;
