@@ -15,9 +15,6 @@
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Web v3.5</TargetFrameworkProfile>
     <CompilerResponseFile></CompilerResponseFile>
-    <UnityProjectType>Game:1</UnityProjectType>
-    <UnityBuildTarget>WebPlayer:6</UnityBuildTarget>
-    <UnityVersion>4.6.0f3</UnityVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -59,6 +56,9 @@
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\GunMovement.cs" />
     <Compile Include="Assets\Scripts\GunStand.cs" />
+    <Compile Include="Assets\Scripts\MeleeEnemyMovement.cs" />
+    <Compile Include="Assets\Scripts\PlayerStats.cs" />
+    <Compile Include="Assets\Scripts\RangedEnemyMovement.cs" />
     <Compile Include="Assets\Scripts\SnapPlayer.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2013\UnityVS.CSharp.targets" />
