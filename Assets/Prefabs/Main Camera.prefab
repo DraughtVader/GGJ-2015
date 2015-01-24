@@ -76,7 +76,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100004}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -357, z: 0}
+  m_LocalPosition: {x: 0, y: -346, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400008}
@@ -161,8 +161,8 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: 1056.84473, y: 68.0950241}
-  m_Center: {x: 5.9420166, y: -1.1126709}
+  m_Size: {x: 935.466797, y: 68.0950241}
+  m_Center: {x: 9.74206543, y: -1.1126709}
 --- !u!61 &6100006
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -172,11 +172,11 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: 1056.84473, y: 68.0950241}
-  m_Center: {x: 5.9420166, y: -1.1126709}
+  m_Size: {x: 908.916016, y: 68.0950241}
+  m_Center: {x: 7.84710693, y: -1.1126709}
 --- !u!61 &6100008
 BoxCollider2D:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100008}
@@ -212,7 +212,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player1: {fileID: 0}
   Player2: {fileID: 0}
-  CameraMinSize: 175
+  CameraMinSize: 200
   CameraMaxSize: 288
 --- !u!114 &11400002
 MonoBehaviour:
