@@ -4,6 +4,17 @@ using System.Collections;
 public class CameraFollow : MonoBehaviour {
 
     private Transform _gun;
+	private Vector3 _midpoint;
+	private float _playerDistance;
+
+	//Max camera size is 288
+	//Min camera size should be 150/175
+
+	public GameObject Player1;
+	public GameObject Player2;
+	public float CameraMinSize;
+	public float CameraMaxSize;
+
 	void Start () 
     {
         _gun = GameObject.Find("Gun").transform;	
@@ -12,6 +23,15 @@ public class CameraFollow : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
     {
-        this.transform.position = new Vector3(this.transform.position.x, _gun.position.y + 150, -10);
+        
+		_midpoint = (Player1.transform.position + Player2.transform.position) * 0.5f;
+		_playerDistance = Vector3.Distance(Player1.transform.position, Player2.transform.position) * 0.5f;
+
+		if(_playerDistance >= CameraMinSize && _playerDistance <= CameraMaxSize)
+		gameObject.GetComponent<Camera>().orthographicSize = _playerDistance;
+
+		Debug.Log(_playerDistance);
+
+		this.transform.position = new Vector3(_midpoint.x, _midpoint.y, -10.0f);
 	}
 }
