@@ -14,6 +14,7 @@ GameObject:
   - 114: {fileID: 11475962}
   - 114: {fileID: 11475960}
   - 114: {fileID: 11466730}
+  - 95: {fileID: 9580400}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Player
@@ -31,6 +32,7 @@ GameObject:
   - 4: {fileID: 475962}
   - 120: {fileID: 12075966}
   - 114: {fileID: 11475964}
+  - 114: {fileID: 11480400}
   m_Layer: 0
   m_Name: AimSight
   m_TagString: Untagged
@@ -79,7 +81,7 @@ Transform:
   m_GameObject: {fileID: 175960}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 621, y: 71, z: 0}
-  m_LocalScale: {x: 50, y: 50, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children:
   - {fileID: 475962}
   - {fileID: 475964}
@@ -146,8 +148,23 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 32, y: 32}
   m_Center: {x: 0, y: 0}
+--- !u!95 &9580400
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 175960}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e21cb89c16670ad43a2171320891ae16, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11466730
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -184,11 +201,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 300
-  MaxThrowForce: 300
+  MaxThrowForce: 600
   XAxis: Horizontal2
   YAxis: Vertical2
   ThrowAxis: Throw2
-  ActionAxis: 
+  ActionAxis: Action2
   HasGun: 0
   IsSnapped: 0
   WithGun: 0
@@ -218,6 +235,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1821909e3568f4234a38b5a861cdc288, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11480400
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 175962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4162f97d2c1b040e1a6d3a64625cc64e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Fire: Fire2
+  ShootDelay: .200000003
+  Bullet: {fileID: 193406, guid: 2d033969f0bb44bbea11e00ddc4daeef, type: 2}
 --- !u!120 &12075966
 LineRenderer:
   m_ObjectHideFlags: 1
@@ -293,7 +324,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 41ae2e7063156044ab3fa17cc9794ac7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bfb82563d61ff3c44a751d172d87b330, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
 --- !u!212 &21275966
 SpriteRenderer:
