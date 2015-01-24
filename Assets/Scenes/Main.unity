@@ -183,6 +183,9 @@ MonoBehaviour:
   XAxis: Horizontal1
   YAxis: Vertical1
   ThrowAxis: Throw1
+  ActionAxis: 
+  HasGun: 0
+  IsSnapped: 0
 --- !u!61 &307202846
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -250,7 +253,7 @@ Transform:
 --- !u!114 &307202850
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11472526, guid: 9c8fbb59f0a70a04bb16cb542e4ed451,
+  m_PrefabParentObject: {fileID: 11410414, guid: 9c8fbb59f0a70a04bb16cb542e4ed451,
     type: 2}
   m_PrefabInternal: {fileID: 1241204700}
   m_GameObject: {fileID: 307202844}
@@ -274,7 +277,6 @@ GameObject:
   - 58: {fileID: 334489506}
   - 95: {fileID: 334489505}
   - 60: {fileID: 334489511}
-  - 61: {fileID: 334489504}
   m_Layer: 0
   m_Name: MeleeEnemy
   m_TagString: Enemy
@@ -282,17 +284,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!61 &334489504
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 334489503}
-  m_Enabled: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Size: {x: 1, y: 1}
-  m_Center: {x: 0, y: 0}
 --- !u!95 &334489505
 Animator:
   serializedVersion: 3
@@ -851,7 +842,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 480300, guid: 69f4e5c1728603c4f90f2a1865360ca5, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 608
+      value: 511
       objectReference: {fileID: 0}
     - target: {fileID: 480300, guid: 69f4e5c1728603c4f90f2a1865360ca5, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1015,6 +1006,9 @@ MonoBehaviour:
   XAxis: Horizontal2
   YAxis: Vertical2
   ThrowAxis: Throw1
+  ActionAxis: 
+  HasGun: 0
+  IsSnapped: 0
 --- !u!61 &825348144
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1082,7 +1076,7 @@ Transform:
 --- !u!114 &825348148
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11472526, guid: 9c8fbb59f0a70a04bb16cb542e4ed451,
+  m_PrefabParentObject: {fileID: 11410414, guid: 9c8fbb59f0a70a04bb16cb542e4ed451,
     type: 2}
   m_PrefabInternal: {fileID: 1660271441}
   m_GameObject: {fileID: 825348142}
@@ -1373,7 +1367,7 @@ Transform:
   m_PrefabInternal: {fileID: 672312279}
   m_GameObject: {fileID: 1236199618}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 684, y: 608, z: 0}
+  m_LocalPosition: {x: 684, y: 511, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1573,6 +1567,56 @@ Prefab:
   m_RootGameObject: {fileID: 825348142}
   m_IsPrefabParent: 0
   m_IsExploded: 1
+--- !u!1 &1683788880
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1683788882}
+  - 212: {fileID: 1683788881}
+  m_Layer: 0
+  m_Name: Desert_01
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!212 &1683788881
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1683788880}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayerID: 0
+  m_SortingOrder: -1
+  m_Sprite: {fileID: 21300000, guid: b8ef4591005076644a79eed44b723236, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!4 &1683788882
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1683788880}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 478, y: 294, z: 0}
+  m_LocalScale: {x: 2500, y: 1500, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
 --- !u!1 &1825372884
 GameObject:
   m_ObjectHideFlags: 0
