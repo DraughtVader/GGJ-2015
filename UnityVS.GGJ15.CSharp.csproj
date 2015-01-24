@@ -64,12 +64,13 @@
     <Compile Include="Assets\Scripts\EnemySpawnerScript.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\GunMovement.cs" />
+    <Compile Include="Assets\Scripts\MainMenu.cs" />
     <Compile Include="Assets\Scripts\MeleeAttackScript.cs" />
     <Compile Include="Assets\Scripts\MeleeEnemyMovement.cs" />
-    <Compile Include="Assets\Scripts\NewBehaviourScript.cs" />
     <Compile Include="Assets\Scripts\PlayerStats.cs" />
     <Compile Include="Assets\Scripts\RangedEnemyMovement.cs" />
     <Compile Include="Assets\Scripts\ScreenShake.cs" />
+    <Compile Include="Assets\Scripts\ScrollingBackground.cs" />
     <Compile Include="Assets\Scripts\Shoot.cs" />
     <Compile Include="Assets\Scripts\SnapPlayer.cs" />
     <Compile Include="Assets\Scripts\TurretCrossHair.cs" />
