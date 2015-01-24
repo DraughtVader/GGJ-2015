@@ -10,6 +10,7 @@ GameObject:
   - 4: {fileID: 464530}
   - 120: {fileID: 12064536}
   - 114: {fileID: 11464528}
+  - 114: {fileID: 11454664}
   m_Layer: 0
   m_Name: AimSight
   m_TagString: Untagged
@@ -30,6 +31,7 @@ GameObject:
   - 61: {fileID: 6164536}
   - 114: {fileID: 11464532}
   - 114: {fileID: 11464530}
+  - 114: {fileID: 11454662}
   m_Layer: 0
   m_Name: Player1
   m_TagString: Player
@@ -63,7 +65,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 464536}
   - 212: {fileID: 21264536}
-  - 114: {fileID: 11464536}
   m_Layer: 0
   m_Name: Melee
   m_TagString: Untagged
@@ -148,6 +149,32 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_Size: {x: 1, y: 1}
   m_Center: {x: 0, y: 0}
+--- !u!114 &11454662
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 164532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4648faf8939e5a94dbac5b567d76aad8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MeleeAxis: Melee1
+--- !u!114 &11454664
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 164530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4162f97d2c1b040e1a6d3a64625cc64e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Fire: Fire1
+  ShootDelay: .200000003
+  Bullet: {fileID: 193406, guid: 2d033969f0bb44bbea11e00ddc4daeef, type: 2}
 --- !u!114 &11464528
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -191,7 +218,7 @@ MonoBehaviour:
   XAxis: Horizontal1
   YAxis: Vertical1
   ThrowAxis: Throw1
-  ActionAxis: 
+  ActionAxis: Action1
   HasGun: 0
   IsSnapped: 0
   WithGun: 0
@@ -203,21 +230,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 164534}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf6dc2f1cc028804a9b21872bedeba38, type: 3}
+  m_Script: {fileID: 11500000, guid: 1821909e3568f4234a38b5a861cdc288, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &11464536
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 164536}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4648faf8939e5a94dbac5b567d76aad8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MeleeAxis: Melee1
 --- !u!120 &12064536
 LineRenderer:
   m_ObjectHideFlags: 1

@@ -22,11 +22,14 @@ public class MeleeAttackScript : MonoBehaviour {
 
     void Melee()
     {
-        var enemies = Physics2D.OverlapCircleAll(_attackPosition.position, 15, 1 << LayerMask.NameToLayer("Enemy"));
+        var enemies = Physics2D.OverlapCircleAll(this.transform.position, 45, 1 << LayerMask.NameToLayer("Enemy"));
         foreach (var item in enemies)
         {
-           // item.transform.position += (item.transform.position-this.transform.position).normalized * 25;
-            item.GetComponent<MeleeEnemyMovement>().Stun();
+            print(item.name);
+            if (item.name == "RangedEnemy(Clone)")
+                item.GetComponent<RangedEnemyMovement>().Stun();
+            else
+                item.GetComponent<MeleeEnemyMovement>().Stun();
             item.rigidbody2D.AddForce((item.transform.position - this.transform.position).normalized * 100, ForceMode2D.Impulse);
         }
     }

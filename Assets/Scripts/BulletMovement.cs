@@ -15,6 +15,13 @@ public class BulletMovement : MonoBehaviour {
 	void Update () 
 	{
 		this.transform.position += Direction * BulletSpeed * Time.deltaTime;
-		//Debug.Log(Direction);
 	}
+
+    void OnTriggerEnter2D(Collider2D coll)
+    {
+        if (coll.tag == "Enemy")
+        {
+            GameObject.Destroy(coll.gameObject);
+        }
+    }
 }

@@ -7,6 +7,7 @@ public class RangedEnemyMovement : MonoBehaviour {
     private Animator _anim;
     private Vector2 _closestPlayerPos;
     private float _shotCoolDown = 2;
+    private bool _isStunned;
 
     public float Speed = 10;
     public float Range = 250;
@@ -21,6 +22,9 @@ public class RangedEnemyMovement : MonoBehaviour {
 
     void Update()
     {
+        if (_isStunned)
+            return;
+
         if (PlayerInRange())
         {
             Shoot();
@@ -66,10 +70,27 @@ public class RangedEnemyMovement : MonoBehaviour {
             var angle = Mathf.Atan2(projectile.rigidbody2D.velocity.y, projectile.rigidbody2D.velocity.x) * Mathf.Rad2Deg;
             rigidbody2D.MoveRotation(angle);
             _shotCoolDown = 2;
+            this.transform.localScale = Vector3.one * 5;
         }
         else
         {
+            this.transform.localScale += new Vector3(0.02f, 0.02f, 0);
             _shotCoolDown -= Time.deltaTime;
         }
+    }
+
+    public void Stun()
+    {
+        StartCoroutine(Stunned());
+    }
+
+    IEnumerator Stunned()
+    {
+        _isStunned = true;
+        _anim.Play("EnemyStunned");
+        this.rigidbody2D.velocity = Vector2.zero;
+        yield return new WaitForSeconds(3);
+        _isStunned = false;
+        _anim.Play("Idle");
     }
 }

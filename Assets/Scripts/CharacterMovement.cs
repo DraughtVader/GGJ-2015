@@ -14,10 +14,12 @@ public class CharacterMovement : MonoBehaviour
     private bool _aiming;
     private GameObject _gun;
     private float _throwForce;
+    private Animator _anim;
 
     void Start()
     {
         _gun = GameObject.Find("Gun");
+        _anim = GetComponent<Animator>();
     }
 
     void Update()
@@ -25,12 +27,23 @@ public class CharacterMovement : MonoBehaviour
         Throw();
 
         if(!IsSnapped)
+        {
 			this.rigidbody2D.velocity = Input.GetAxis(XAxis) * Speed * Vector2.right + Input.GetAxis(YAxis) * Speed * Vector2.up;
-		if(IsSnapped)
-			this.rigidbody2D.velocity = new Vector2(0.0f, 0.0f);
+            if (WithGun)
+            {
+                this.rigidbody2D.velocity *= 0.1f;
+            }
+        }
 
         if (WithGun)
             _gun.transform.position = this.transform.position;
+
+		if(IsSnapped)
+        {
+			this.rigidbody2D.velocity = new Vector2(0.0f, 0.0f);
+            _anim.Play("WalkFront");
+            return;
+        }
 
         this.transform.localScale = CalcScale();
     }
@@ -41,18 +54,17 @@ public class CharacterMovement : MonoBehaviour
         if (Mathf.Abs(rigidbody2D.velocity.x) >= Mathf.Abs(rigidbody2D.velocity.y))
         {
             if (rigidbody2D.velocity.x > 0)
-                scale.x = Mathf.Abs(this.transform.localScale.x);
-            else
                 scale.x = -Mathf.Abs(this.transform.localScale.x);
-            //_anim.Play("WalkHorizontal");
+            else
+                scale.x = Mathf.Abs(this.transform.localScale.x);
+            _anim.Play("WalkSide");
         }
         else
         {
             if (rigidbody2D.velocity.y > 0)
-                scale.y = -Mathf.Abs(this.transform.localScale.y);
+                _anim.Play("WalkBack");
             else
-                scale.y = Mathf.Abs(this.transform.localScale.y);
-            //_anim.Play("WalkVertical");
+                _anim.Play("WalkFront");
         }
         return scale;
     }
