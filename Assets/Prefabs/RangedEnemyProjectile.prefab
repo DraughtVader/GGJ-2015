@@ -11,6 +11,7 @@ GameObject:
   - 212: {fileID: 21207968}
   - 50: {fileID: 5007968}
   - 61: {fileID: 6107968}
+  - 114: {fileID: 11435170}
   m_Layer: 0
   m_Name: RangedEnemyProjectile
   m_TagString: Untagged
@@ -56,6 +57,17 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_Size: {x: 1, y: 1}
   m_Center: {x: 0, y: 0}
+--- !u!114 &11435170
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 107968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f61352458eeefc946a7159de423a0b24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &21207968
 SpriteRenderer:
   m_ObjectHideFlags: 1
