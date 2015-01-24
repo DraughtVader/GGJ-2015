@@ -3,7 +3,9 @@ using System.Collections;
 
 public class EnemySpawnerScript : MonoBehaviour {
 
-    public GameObject RangedEnemy, MeleeEnemy;
+    public GameObject MeleeEnemy;
+
+    public float difficulty = 0, incDiff = 0.001f;
 
 	// Use this for initialization
 	void Start () 
@@ -13,12 +15,9 @@ public class EnemySpawnerScript : MonoBehaviour {
 	
     void Spawn()
     {
-        if (Random.Range(0,3) == 0)
-        {
-            Instantiate(RangedEnemy, (Random.insideUnitCircle * 800) + (Vector2)this.transform.position, this.transform.rotation);
-            return;
-        }
-        Instantiate(MeleeEnemy, (Random.insideUnitCircle * 800) + (Vector2)this.transform.position, this.transform.rotation);
+        Instantiate(MeleeEnemy, (getRandomNormalizedVector() * 600) + (Vector2)this.transform.position, this.transform.rotation);
+        if (difficulty < 0.999f)
+            difficulty += incDiff;
     }
 
 	IEnumerator SpawnCo()
@@ -26,7 +25,13 @@ public class EnemySpawnerScript : MonoBehaviour {
         while (true)
         {
             Spawn();
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(1f - difficulty);
         }
+    }
+
+    Vector2 getRandomNormalizedVector()
+    {
+        Vector2 v = new Vector2(Random.Range(-1f, 1f),Random.Range(-1f, 1f));
+        return v.normalized;
     }
 }

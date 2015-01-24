@@ -14,13 +14,13 @@ public class Shoot : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-		GameObject.Find("AmmoCounter").GetComponent<Text>().text = "Turret Ammo: " + AmmoCount;
+//		GameObject.Find("AmmoCounter").GetComponent<Text>().text = "Turret Ammo: " + AmmoCount;
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{ 
-		if((Input.GetAxisRaw(Fire) > 0) && (this.GetComponentInParent<CharacterMovement>().IsSnapped) && (this.GetComponentInParent<CharacterMovement>().WithGun) && _canShoot && AmmoCount > 0.0f)
+		if((Input.GetAxisRaw(Fire) > 0) && (this.GetComponentInParent<CharacterMovement>().IsSnapped) && (this.GetComponentInParent<CharacterMovement>().WithGun) && _canShoot)
 		{
 			ShootBullet();
 			_canShoot = false;
@@ -34,7 +34,7 @@ public class Shoot : MonoBehaviour {
 		Instantiate(Bullet, GetComponentInParent<Transform>().position, Quaternion.identity);
 		Bullet.GetComponent<BulletMovement>().Direction = _shootDirection;
 		AmmoCount -= 1.0f;
-		GameObject.Find("AmmoCounter").GetComponent<Text>().text = "Turret Ammo: " + AmmoCount;
+//		GameObject.Find("AmmoCounter").GetComponent<Text>().text = "Turret Ammo: " + AmmoCount;
 	}
 
 	IEnumerator FireDelay(float delay)
