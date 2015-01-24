@@ -3,7 +3,7 @@ using System.Collections;
 
 public class CharacterMovement : MonoBehaviour
 {
-    public float Speed, MaxThrowForce;
+    public float Speed, MaxThrowForce, SlowSpeed;
     public string XAxis, YAxis, ThrowAxis, ActionAxis;
     public bool HasGun = false;
     public bool IsSnapped = false;
@@ -35,8 +35,8 @@ public class CharacterMovement : MonoBehaviour
             }
         }
 
-        if (WithGun)
-            _gun.transform.position = this.transform.position;
+        if(WithGun)
+			_gun.transform.position = this.transform.position;
 
 		if(IsSnapped)
         {
