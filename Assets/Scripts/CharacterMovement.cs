@@ -41,6 +41,7 @@ public class CharacterMovement : MonoBehaviour
 
 		if(IsSnapped)
         {
+            rigidbody2D.velocity = Vector2.zero;
             return;
         }
 

@@ -23,7 +23,7 @@ public class CrossHair : MonoBehaviour
             if (angle > 0 && angle < 180)
             {
                 transform.parent.GetComponent<CharacterMovement>().Anim.Play("WalkBack");
-                transform.parent.GetComponent<CharacterMovement>().Sprite.sortingOrder = 2;
+                transform.parent.GetComponent<CharacterMovement>().Sprite.sortingOrder = 3;
             }
             else
             {
