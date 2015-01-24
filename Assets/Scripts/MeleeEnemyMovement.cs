@@ -9,7 +9,10 @@ public class MeleeEnemyMovement : MonoBehaviour {
     private Animator _anim;
     private string _playerID = "";
     private bool _isStunned;
+
     public float Speed = 10;
+    public bool Dead;
+
 	void Start () 
     {
         _player1Transform = GameObject.Find("Player1").transform;
@@ -20,6 +23,9 @@ public class MeleeEnemyMovement : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
     {
+        if (Dead)
+            return;
+
         rigidbody2D.isKinematic = false;
         if (_isAttacking)
         {
@@ -84,5 +90,10 @@ public class MeleeEnemyMovement : MonoBehaviour {
         if (_playerID == "")
             return;
         GameObject.Find(_playerID + "Health").GetComponent<Text>().text = _playerID + ": " + (GameObject.Find(_playerID).GetComponent<PlayerStats>().Health -= 20);
+    }
+
+    public void Destroy()
+    {
+        GameObject.Destroy(this.gameObject);
     }
 }
