@@ -8,7 +8,7 @@ public class MeleeAttackScript : MonoBehaviour {
     public string MeleeAxis;
 	// Use this for initialization
 	void Start () {
-        _attackPosition = transform.GetChild(1);
+        _attackPosition = transform.GetChild(2);
 	}
 	
 	// Update is called once per frame

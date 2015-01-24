@@ -32,8 +32,29 @@ public class CharacterMovement : MonoBehaviour
         if (WithGun)
             _gun.transform.position = this.transform.position;
 
-        var angle = Mathf.Atan2(rigidbody2D.velocity.y, rigidbody2D.velocity.x) * Mathf.Rad2Deg;
-        rigidbody2D.MoveRotation(angle);
+        this.transform.localScale = CalcScale();
+    }
+
+    private Vector3 CalcScale()
+    {
+        var scale = this.transform.localScale;
+        if (Mathf.Abs(rigidbody2D.velocity.x) >= Mathf.Abs(rigidbody2D.velocity.y))
+        {
+            if (rigidbody2D.velocity.x > 0)
+                scale.x = Mathf.Abs(this.transform.localScale.x);
+            else
+                scale.x = -Mathf.Abs(this.transform.localScale.x);
+            //_anim.Play("WalkHorizontal");
+        }
+        else
+        {
+            if (rigidbody2D.velocity.y > 0)
+                scale.y = -Mathf.Abs(this.transform.localScale.y);
+            else
+                scale.y = Mathf.Abs(this.transform.localScale.y);
+            //_anim.Play("WalkVertical");
+        }
+        return scale;
     }
 
     public void Throw()
