@@ -28,7 +28,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 180300}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 624, y: 202, z: 0}
+  m_LocalPosition: {x: 1729.57861, y: 284.99826, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -59,16 +59,15 @@ PolygonCollider2D:
   m_IsTrigger: 0
   m_Poly:
     m_Paths:
-    - - {x: -7.06958008, y: -10.8962555}
-      - {x: -6.06896973, y: -14.5518646}
-      - {x: 5.20706177, y: -14.7587585}
-      - {x: 6.97891235, y: -10.4390259}
-      - {x: 7.11166382, y: 3.34848022}
-      - {x: 5.08905029, y: 3.20535278}
-      - {x: 4.86209106, y: 9.79376221}
-      - {x: -5.37936401, y: 10.1385345}
-      - {x: -5.2746582, y: 3.03469849}
-      - {x: -7.20748901, y: 2.93061829}
+    - - {x: -13, y: -8}
+      - {x: -6, y: -16}
+      - {x: 7, y: -16}
+      - {x: 13, y: -11}
+      - {x: 13, y: 7}
+      - {x: 11, y: 13}
+      - {x: 5, y: 16}
+      - {x: -6, y: 16}
+      - {x: -13, y: -1}
 --- !u!61 &6100000
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -106,7 +105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8737b16c3d022149b7c6963bf24eea2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 20
+  Speed: 35
 --- !u!212 &21280300
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -127,7 +126,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 13be7ca6ca93e1c4f9132cec0d0c2dbc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 629b50e9870c04df3b1aab2bd0ccb592, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
