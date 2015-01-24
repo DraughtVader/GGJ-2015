@@ -23,7 +23,7 @@ public class SnapPlayer : MonoBehaviour {
 	{
 		if(player.tag == "Player")
 		{
-			if((player.GetComponent<CharacterMovement>().WithGun) && (player.GetComponent<CharacterMovement>().IsSnapped == false) && (Input.GetAxisRaw(player.GetComponent<CharacterMovement>().ActionAxis) > 0) && !_buttonPressed)
+			if((player.GetComponent<CharacterMovement>().HasGun) && (player.GetComponent<CharacterMovement>().IsSnapped == false) && (Input.GetAxisRaw(player.GetComponent<CharacterMovement>().ActionAxis) > 0) && !_buttonPressed)
 			{
 				Vector3 gunStandPos = this.GetComponentInParent<Transform>().position;
 				SnappedPlayer = player;

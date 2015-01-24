@@ -15,6 +15,21 @@ public class CrossHair : MonoBehaviour
 
     void Update()
     {
-        this.transform.position = transform.parent.position + _aimSight.AimDirection.normalized * 50;
+        if (transform.parent.GetComponent<CharacterMovement>().HasGun)
+        {
+            var angle = Mathf.Atan2(_aimSight.AimDirection.y, _aimSight.AimDirection.x) * Mathf.Rad2Deg;
+            GameObject.Find("Gun").transform.localEulerAngles = new Vector3(0,0, angle);
+
+            if (angle > 0 && angle < 180)
+            {
+                transform.parent.GetComponent<CharacterMovement>().Anim.Play("WalkBack");
+                transform.parent.GetComponent<CharacterMovement>().Sprite.sortingOrder = 3;
+            }
+            else
+            {
+                transform.parent.GetComponent<CharacterMovement>().Anim.Play("WalkFront");
+                transform.parent.GetComponent<CharacterMovement>().Sprite.sortingOrder = 0;
+            }
+        }
     }
 }
