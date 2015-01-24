@@ -15,13 +15,13 @@ public class DistanceTracker : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-		_startPosition = (Player1.transform.position.y - Player2.transform.position.y) * 0.5f;
+		_startPosition = (Player1.transform.position.y + Player2.transform.position.y) * 0.5f;
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
-		_currentPosition = (Player1.transform.position.y - Player2.transform.position.y) * 0.5f;
+		_currentPosition = (Player1.transform.position.y + Player2.transform.position.y) * 0.5f;
 		_currentDistance = _currentPosition - _startPosition;
 		Debug.Log(_currentDistance);
 
