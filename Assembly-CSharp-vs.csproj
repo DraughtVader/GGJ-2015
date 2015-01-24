@@ -48,6 +48,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\AimSight.cs" />
      <Compile Include="Assets\Scripts\BulletMovement.cs" />
+     <Compile Include="Assets\Scripts\CameraFollow.cs" />
      <Compile Include="Assets\Scripts\CharacterMovement.cs" />
      <Compile Include="Assets\Scripts\CrossHair.cs" />
      <Compile Include="Assets\Scripts\EnemyProjectileScript.cs" />
@@ -56,6 +57,7 @@
      <Compile Include="Assets\Scripts\GunMovement.cs" />
      <Compile Include="Assets\Scripts\MeleeAttackScript.cs" />
      <Compile Include="Assets\Scripts\MeleeEnemyMovement.cs" />
+     <Compile Include="Assets\Scripts\NewBehaviourScript.cs" />
      <Compile Include="Assets\Scripts\PlayerStats.cs" />
      <Compile Include="Assets\Scripts\RangedEnemyMovement.cs" />
      <Compile Include="Assets\Scripts\ScreenShake.cs" />
