@@ -30,6 +30,7 @@ public class CameraFollow : MonoBehaviour {
 		if(_playerDistance >= CameraMinSize && _playerDistance <= CameraMaxSize)
 		gameObject.GetComponent<Camera>().orthographicSize = _playerDistance;
 
-		this.transform.position = new Vector3(_midpoint.x, _midpoint.y, -10.0f);
+		this.transform.position = new Vector3(GameObject.Find("Field").GetComponent<Transform>().position.x,
+		                                      _midpoint.y, -10.0f);
 	}
 }
