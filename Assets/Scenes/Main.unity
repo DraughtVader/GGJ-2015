@@ -1014,7 +1014,7 @@ MonoBehaviour:
   ActionAxis: 
   HasGun: 0
   IsSnapped: 0
-  WithGun: 1
+  WithGun: 0
 --- !u!61 &825348144
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1511,6 +1511,7 @@ GameObject:
   - 4: {fileID: 1616786914}
   - 212: {fileID: 1616786913}
   - 114: {fileID: 1616786915}
+  - 61: {fileID: 1616786916}
   m_Layer: 0
   m_Name: Gun
   m_TagString: Untagged
@@ -1566,6 +1567,17 @@ MonoBehaviour:
   FrictionForce: 10
   Velocity: {x: 0, y: 0, z: 0}
   Held: 1
+--- !u!61 &1616786916
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1616786912}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Size: {x: 1, y: 1}
+  m_Center: {x: 0, y: 0}
 --- !u!1001 &1660271441
 Prefab:
   m_ObjectHideFlags: 0
@@ -1648,6 +1660,10 @@ Prefab:
     - target: {fileID: 11456526, guid: 9c8fbb59f0a70a04bb16cb542e4ed451, type: 2}
       propertyPath: MaxThrowForce
       value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 11456526, guid: 9c8fbb59f0a70a04bb16cb542e4ed451, type: 2}
+      propertyPath: WithGun
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9c8fbb59f0a70a04bb16cb542e4ed451, type: 2}

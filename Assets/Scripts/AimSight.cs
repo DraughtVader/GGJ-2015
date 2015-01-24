@@ -25,7 +25,11 @@ public class AimSight : MonoBehaviour
 
     void Aim()
     {
-         AimDirection = Input.GetAxis(LookX) * Vector2.right + Input.GetAxis(LookY) * Vector2.up;
+        AimDirection = Input.GetAxis(LookX) * Vector2.right + Input.GetAxis(LookY) * Vector2.up;
+
+        if (AimDirection.magnitude < 0.01f)
+            AimDirection = Vector2.up;
+
         _line.SetPosition(0, _playerTransform.position);
         _line.SetPosition(1, _playerTransform.position + AimDirection * AimForce * 0.5f);
     }
