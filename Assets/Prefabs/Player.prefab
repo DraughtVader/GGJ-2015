@@ -73,7 +73,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 156526}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 285, y: 273, z: 0}
+  m_LocalPosition: {x: 621, y: 71, z: 0}
   m_LocalScale: {x: 50, y: 50, z: 1}
   m_Children:
   - {fileID: 456528}
@@ -142,13 +142,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 300
   MaxThrowForce: 300
-  XAxis: Horizontal1
-  YAxis: Vertical1
-  ThrowAxis: Throw1
-  ActionAxis: 
+  XAxis: Horizontal2
+  YAxis: Vertical2
+  ThrowAxis: Throw2
+  ActionAxis: Action2
   HasGun: 0
   IsSnapped: 0
-  WithGun: 1
+  WithGun: 0
 --- !u!114 &11456528
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -160,8 +160,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5f1fc35a878a4549a773b0c76b0e155, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LookX: LookX1
-  LookY: LookY1
+  LookX: LookX2
+  LookY: LookY2
   AimDirection: {x: 0, y: 0, z: 0}
   AimForce: 0
 --- !u!114 &11483830

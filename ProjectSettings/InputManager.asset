@@ -54,11 +54,11 @@ InputManager:
     axis: 8
     joyNum: 1
   - serializedVersion: 3
-    m_Name: Fire2
+    m_Name: Fire1
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: left alt
+    positiveButton: left shift
     altNegativeButton: 
     altPositiveButton: mouse 1
     gravity: 1000
@@ -427,6 +427,38 @@ InputManager:
     descriptiveNegativeName: 
     negativeButton: 
     positiveButton: joystick button 4
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 1000
+    dead: .00100000005
+    sensitivity: 1000
+    snap: 0
+    invert: 0
+    type: 0
+    axis: 4
+    joyNum: 2
+  - serializedVersion: 3
+    m_Name: Action1
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: e
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 1000
+    dead: .00100000005
+    sensitivity: 1000
+    snap: 0
+    invert: 0
+    type: 0
+    axis: 4
+    joyNum: 2
+  - serializedVersion: 3
+    m_Name: Action2
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: e
     altNegativeButton: 
     altPositiveButton: 
     gravity: 1000

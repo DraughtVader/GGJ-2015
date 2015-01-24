@@ -5,7 +5,7 @@ public class SnapPlayer : MonoBehaviour {
 
 	public bool PlayerIsSnapped; //Used for Turret Shoot to check if a player is currently snapped
 	private bool _buttonPressed = false; //Used to prevent player from rapid snap/unsnap
-	public GameObject SnappedPlayer;
+	public Collider2D SnappedPlayer;
 
 	void Start () 
 	{
@@ -23,7 +23,7 @@ public class SnapPlayer : MonoBehaviour {
 		Debug.Log(Input.GetAxisRaw("Action1"));
 		if(player.tag == "Player")
 		{
-			if((player.GetComponent<CharacterMovement>().WithGun) && (player.GetComponent<CharacterMovement>().IsSnapped == false) && (Input.GetAxisRaw(player.GetComponent<CharacterMovement>().ActionAxis) > 0) && !ButtonPressed)
+			if((player.GetComponent<CharacterMovement>().WithGun) && (player.GetComponent<CharacterMovement>().IsSnapped == false) && (Input.GetAxisRaw(player.GetComponent<CharacterMovement>().ActionAxis) > 0) && !_buttonPressed)
 			{
 				Vector3 gunStandPos = this.GetComponentInParent<Transform>().position;
 				SnappedPlayer = player;
@@ -33,7 +33,7 @@ public class SnapPlayer : MonoBehaviour {
 				StartCoroutine(SnapPause());
 			}
 
-			if((player.GetComponent<CharacterMovement>().IsSnapped) && (Input.GetAxisRaw(player.GetComponent<CharacterMovement>().ActionAxis) > 0) && !ButtonPressed)
+			if((player.GetComponent<CharacterMovement>().IsSnapped) && (Input.GetAxisRaw(player.GetComponent<CharacterMovement>().ActionAxis) > 0) && !_buttonPressed)
 			{
 				player.GetComponent<CharacterMovement>().IsSnapped = false;
 				SnappedPlayer = null;
