@@ -14,7 +14,7 @@ GameObject:
   - 58: {fileID: 5880300}
   - 95: {fileID: 9580300}
   - 60: {fileID: 6001030}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: MeleeEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}

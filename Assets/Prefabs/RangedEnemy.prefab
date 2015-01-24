@@ -14,7 +14,7 @@ GameObject:
   - 58: {fileID: 5880300}
   - 95: {fileID: 9580300}
   - 60: {fileID: 6001030}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RangedEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -131,6 +131,7 @@ MonoBehaviour:
   Speed: 20
   Range: 250
   Projectile: {fileID: 107968, guid: a2d9415f1797c7e4d924d6b1e0de8814, type: 2}
+  BulletSpeed: 200
 --- !u!212 &21280300
 SpriteRenderer:
   m_ObjectHideFlags: 1

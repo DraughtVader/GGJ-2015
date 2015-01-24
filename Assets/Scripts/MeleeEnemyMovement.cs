@@ -8,6 +8,7 @@ public class MeleeEnemyMovement : MonoBehaviour {
     private bool _isAttacking;
     private Animator _anim;
     private string _playerID = "";
+    private bool _isStunned;
 
     public float Speed = 10;
 	void Start () 
@@ -20,6 +21,9 @@ public class MeleeEnemyMovement : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
     {
+        if (_isStunned)
+            return;
+
         if (_isAttacking)
         {
             rigidbody2D.velocity = Vector2.zero;
@@ -68,5 +72,20 @@ public class MeleeEnemyMovement : MonoBehaviour {
         if (_playerID == "")
             return;
         GameObject.Find(_playerID + "Health").GetComponent<Text>().text = _playerID + ": " + (GameObject.Find(_playerID).GetComponent<PlayerStats>().Health -= 20);
+    }
+
+    public void Stun()
+    {
+        StartCoroutine(Stunned());
+    }
+
+    IEnumerator Stunned()
+    {
+        _isStunned = true;
+        _anim.Play("EnemyStunned");
+        this.rigidbody2D.velocity = Vector2.zero;
+        yield return new WaitForSeconds(3);
+        _isStunned = false;
+        _anim.Play("Idle");
     }
 }

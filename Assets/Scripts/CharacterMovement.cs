@@ -31,6 +31,9 @@ public class CharacterMovement : MonoBehaviour
 
         if (WithGun)
             _gun.transform.position = this.transform.position;
+
+        var angle = Mathf.Atan2(rigidbody2D.velocity.y, rigidbody2D.velocity.x) * Mathf.Rad2Deg;
+        rigidbody2D.MoveRotation(angle);
     }
 
     public void Throw()
