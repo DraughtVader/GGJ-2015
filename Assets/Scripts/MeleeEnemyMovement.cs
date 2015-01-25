@@ -96,4 +96,11 @@ public class MeleeEnemyMovement : MonoBehaviour {
     {
         GameObject.Destroy(this.gameObject);
     }
+
+    public void EndGame()
+    {
+        print("GameOver");
+        Time.timeScale = 0;
+        GameObject.Find("GameOverTest").GetComponent<Text>().text = "GAME OVER";
+    }
 }
