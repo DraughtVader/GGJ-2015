@@ -47,7 +47,7 @@ public class GunMovement : MonoBehaviour
             if (coll.name == _lastPlayer)
                 return;
             coll.gameObject.GetComponent<CharacterMovement>().HasGun = coll.gameObject.GetComponent<CharacterMovement>().IsSnapped = true;
-			audio.Play();
+			this.gameObject.GetComponent<AudioSource>().audio.Play();
             Held = true;
             _lastPlayer = coll.name;
         }
