@@ -23,7 +23,11 @@ public class EnemySpawnerScript : MonoBehaviour {
             return;
 
         Instantiate(MeleeEnemy, (getRandomNormalizedVector() * 600) + (Vector2)this.transform.position, this.transform.rotation);
-        if (difficulty < 0.999f)
+        
+		if(Random.Range(0.0f, 100.0f) < 30.0f)
+			this.gameObject.GetComponent<AudioSource>().audio.Play();
+
+		if (difficulty < 0.999f)
             difficulty += incDiff;
         TotalNumber++;
     }
