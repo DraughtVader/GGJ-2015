@@ -9,6 +9,7 @@ public class GunMovement : MonoBehaviour
     public Vector3 Velocity;
 
     public bool Held = true;
+    private string _lastPlayer = "Player1";
 
     void Start()
     {
@@ -29,8 +30,11 @@ public class GunMovement : MonoBehaviour
     {
         if (coll.gameObject.tag == "Player")
         {
+            if (coll.name == _lastPlayer)
+                return;
             coll.gameObject.GetComponent<CharacterMovement>().HasGun = coll.gameObject.GetComponent<CharacterMovement>().IsSnapped = true;
             Held = true;
+            _lastPlayer = coll.name;
         }
         else if (coll.gameObject.tag == "SideBounds") 
         {
