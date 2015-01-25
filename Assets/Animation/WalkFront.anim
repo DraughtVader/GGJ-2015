@@ -20,27 +20,27 @@ AnimationClip:
         value: {x: 0, y: 22.2838745, z: 0}
         inSlope: {x: 0, y: -12.5100327, z: 0}
         outSlope: {x: 0, y: -12.5100327, z: 0}
-        tangentMode: 566665252
+        tangentMode: 0
       - time: .100000001
         value: {x: 0, y: 21.0328712, z: 0}
         inSlope: {x: 0, y: 1.49150848, z: 0}
         outSlope: {x: 0, y: 1.49150848, z: 0}
-        tangentMode: 1630434414
+        tangentMode: 0
       - time: .200000003
         value: {x: 0, y: 22.5821762, z: 0}
         inSlope: {x: 0, y: 15.4930496, z: 0}
         outSlope: {x: 0, y: 18.0224781, z: 0}
-        tangentMode: 1768902770
+        tangentMode: 605120288
       - time: .300000012
         value: {x: 0, y: 21.4835644, z: 0}
         inSlope: {x: 0, y: -1.41634846, z: 0}
         outSlope: {x: 0, y: -1.41634846, z: 0}
-        tangentMode: 57
+        tangentMode: 0
       - time: .400000006
         value: {x: 0, y: 22.2989063, z: 0}
         inSlope: {x: 0, y: 8.15342045, z: 0}
         outSlope: {x: 0, y: 8.15342045, z: 0}
-        tangentMode: 57
+        tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
     path: CharacterPointer
