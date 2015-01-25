@@ -22,6 +22,7 @@ public class Shoot : MonoBehaviour {
             ShootBullet();
             IsShooting = true;
             _canShoot = false;
+			this.gameObject.GetComponent<AudioSource>().audio.Play();
             StartCoroutine(FireDelay(ShootDelay));
         }
         else
@@ -34,8 +35,6 @@ public class Shoot : MonoBehaviour {
 		_shootDirection = GetComponentInParent<AimSight>().AimDirection;
 		var bullet = Instantiate(Bullet, GetComponentInParent<Transform>().position, Quaternion.identity) as GameObject;
 		bullet.GetComponent<BulletMovement>().Direction = _shootDirection;
-
-		this.gameObject.GetComponent<AudioSource>().audio.Play();
 
         var angle = Mathf.Atan2(_shootDirection.y, _shootDirection.x) * Mathf.Rad2Deg;
         bullet.transform.Rotate(new Vector3(0, 0, angle));
