@@ -10,10 +10,11 @@ public class GunMovement : MonoBehaviour
 
     public bool Held = true;
     private string _lastPlayer = "Player1";
+    private SpriteRenderer _indicator;
 
     void Start()
     {
-
+        _indicator = transform.GetChild(1).GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -24,6 +25,19 @@ public class GunMovement : MonoBehaviour
             this.transform.position += Velocity * Time.deltaTime;
         }
 
+        _indicator.enabled = !Held;
+
+        if (!Held)
+        {
+            if (_lastPlayer == "Player1")
+            {
+                _indicator.color = Color.green;
+            }
+            else
+            {
+                _indicator.color = Color.red;
+            }
+        }
     }
 
     void OnTriggerEnter2D(Collider2D coll)

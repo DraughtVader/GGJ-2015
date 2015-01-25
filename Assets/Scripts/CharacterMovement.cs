@@ -80,6 +80,7 @@ public class CharacterMovement : MonoBehaviour
             this.GetComponentInChildren<AimSight>().AimForce = 0f;
             _aiming = false;
             HasGun = false;
+            FindObjectOfType<GunMovement>().Held = false;
         }
     }
 
