@@ -92,9 +92,10 @@ GameObject:
   m_Component:
   - 4: {fileID: 458944}
   - 61: {fileID: 6158944}
+  - 50: {fileID: 5000000}
   m_Layer: 9
-  m_Name: GameObject
-  m_TagString: Untagged
+  m_Name: FieldBounds
+  m_TagString: SideBounds
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -108,9 +109,10 @@ GameObject:
   m_Component:
   - 4: {fileID: 458946}
   - 61: {fileID: 6158946}
+  - 50: {fileID: 5000002}
   m_Layer: 9
-  m_Name: GameObject
-  m_TagString: Untagged
+  m_Name: FieldBounds
+  m_TagString: SideBounds
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -233,6 +235,36 @@ Transform:
   - {fileID: 400000}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!50 &5000000
+Rigidbody2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 158944}
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: .0500000007
+  m_GravityScale: 1
+  m_FixedAngle: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+--- !u!50 &5000002
+Rigidbody2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 158946}
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: .0500000007
+  m_GravityScale: 1
+  m_FixedAngle: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
 --- !u!61 &6158944
 BoxCollider2D:
   m_ObjectHideFlags: 1

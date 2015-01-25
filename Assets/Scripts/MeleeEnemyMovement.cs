@@ -105,5 +105,8 @@ public class MeleeEnemyMovement : MonoBehaviour {
         GameObject.Find("GameOverText").GetComponent<Animator>().SetTrigger("GameOver");
         GameObject.Find("DistanceRecord").GetComponent<Text>().text = 
             GameObject.Find("DistanceRecordShadow").GetComponent<Text>().text = "Distance: " + DistanceTracker.CurrentDistance;
+        Time.timeScale = 0;
+        GameObject.Find("GameOverText").GetComponent<Text>().text = "GAME OVER";
+        Game.GameOver = true;
     }
 }

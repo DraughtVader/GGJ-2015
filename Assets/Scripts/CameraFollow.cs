@@ -24,9 +24,6 @@ public class CameraFollow : MonoBehaviour
         _objects[0] = _gun;
         _objects[1] = Player1.transform;
         _objects[2] = Player2.transform;
-
-        Method2();
-
     }
 
     // Update is called once per frame
@@ -69,10 +66,24 @@ public class CameraFollow : MonoBehaviour
         if (newCamSize < CameraMinSize)
             newCamSize = CameraMinSize;
 
-        gameObject.GetComponent<Camera>().orthographicSize = newCamSize;
-        //gameObject.GetComponent<Camera>().orthographicSize = Mathf.Lerp(gameObject.GetComponent<Camera>().orthographicSize, newCamSize, 1);
+        if (gameObject.GetComponent<Camera>().orthographicSize + 1 < newCamSize)
+            gameObject.GetComponent<Camera>().orthographicSize++;
+        else if (gameObject.GetComponent<Camera>().orthographicSize - 1 > newCamSize)
+            gameObject.GetComponent<Camera>().orthographicSize--;
 
-        this.transform.position = new Vector3(m.x, m.y, -10.0f);
+        var newPos = new Vector3(m.x, m.y, -10);
+
+        if (transform.position.x + 1 < m.x)
+            newPos.x = transform.position.x + 1;
+        else if (transform.position.x - 1 > m.x)
+            newPos.x = transform.position.x - 1;
+
+        if (transform.position.y + 1< m.y)
+            newPos.y = transform.position.y + 1;
+        else if (transform.position.y - 1> m.y)
+            newPos.y = transform.position.y - 1;
+
+        this.transform.position = newPos;
     }
 
     Vector3 MidPoint(Vector3 v1, Vector3 v2)
