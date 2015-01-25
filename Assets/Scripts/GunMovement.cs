@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class GunMovement : MonoBehaviour
 {
@@ -30,6 +31,12 @@ public class GunMovement : MonoBehaviour
         {
             coll.gameObject.GetComponent<CharacterMovement>().HasGun = coll.gameObject.GetComponent<CharacterMovement>().IsSnapped = true;
             Held = true;
+        }
+        else if (coll.gameObject.tag == "SideBounds") 
+        {
+            print("GameOver");
+            Time.timeScale = 0;
+            GameObject.Find("GameOverText").GetComponent<Text>().text = "GAME OVER";
         }
     }
 }
