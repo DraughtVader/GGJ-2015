@@ -8,9 +8,10 @@ public class DistanceTracker : MonoBehaviour {
 	public GameObject Player2;
 	public float FinalDistance;
 
+    public static float CurrentDistance;
+
 	private float _startPosition;
 	private float _currentPosition;
-	private float _currentDistance;
 
 	// Use this for initialization
 	void Start () 
@@ -22,13 +23,13 @@ public class DistanceTracker : MonoBehaviour {
 	void Update () 
 	{
 		_currentPosition = (Player1.transform.position.y + Player2.transform.position.y) * 0.5f;
-		_currentDistance = _currentPosition - _startPosition;
+		CurrentDistance = _currentPosition - _startPosition;
 
 		//Debug.Log(_currentDistance);
 
 		//GameObject.Find("DistanceCounter").GetComponent<Text>().text = "Distance: " + _currentDistance;
 
 		if(Player1 == null && Player2 == null)
-			FinalDistance = _currentDistance;
+			FinalDistance = CurrentDistance;
 	}
 }
