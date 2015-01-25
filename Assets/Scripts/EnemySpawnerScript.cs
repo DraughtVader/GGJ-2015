@@ -13,7 +13,7 @@ public class EnemySpawnerScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
     {
-        StartCoroutine("SpawnCo");
+        //StartCoroutine("SpawnCo");
 	}
 	
     void Spawn()
