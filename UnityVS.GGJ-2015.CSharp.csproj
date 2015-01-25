@@ -59,6 +59,7 @@
     <Compile Include="Assets\Scripts\DistanceTracker.cs" />
     <Compile Include="Assets\Scripts\EnemyProjectileScript.cs" />
     <Compile Include="Assets\Scripts\EnemySpawnerScript.cs" />
+    <Compile Include="Assets\Scripts\FieldManager.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\GunMovement.cs" />
     <Compile Include="Assets\Scripts\MainMenu.cs" />

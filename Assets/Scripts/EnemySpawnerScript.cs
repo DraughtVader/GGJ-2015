@@ -8,11 +8,12 @@ public class EnemySpawnerScript : MonoBehaviour {
     public float difficulty = 0, incDiff = 0.001f;
     public float MaxNumber = 50;
 
-    public static int TotalNumber = 0;
+    public static int TotalNumber;
 
 	// Use this for initialization
 	void Start () 
     {
+        TotalNumber = 0;
         StartCoroutine("SpawnCo");
 	}
 	

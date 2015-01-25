@@ -8,7 +8,7 @@ public class BulletMovement : MonoBehaviour {
 	public Vector3 Direction;
 	// Use this for initialization
 	void Start () {
-	
+        StartCoroutine("TTL");
 	}
 	
 	// Update is called once per frame
@@ -26,5 +26,11 @@ public class BulletMovement : MonoBehaviour {
             coll.GetComponent<Animator>().Play("EnemyDead");
             EnemySpawnerScript.TotalNumber--;
         }
+    }
+
+    IEnumerator TTL()
+    {
+        yield return new WaitForSeconds(2);
+        GameObject.Destroy(this.gameObject);
     }
 }

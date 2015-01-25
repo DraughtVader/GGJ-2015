@@ -101,6 +101,6 @@ public class MeleeEnemyMovement : MonoBehaviour {
     {
         print("GameOver");
         Time.timeScale = 0;
-        GameObject.Find("GameOverTest").GetComponent<Text>().text = "GAME OVER";
+        GameObject.Find("GameOverText").GetComponent<Text>().text = "GAME OVER";
     }
 }

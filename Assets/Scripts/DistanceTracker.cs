@@ -24,6 +24,8 @@ public class DistanceTracker : MonoBehaviour {
 		_currentPosition = (Player1.transform.position.y + Player2.transform.position.y) * 0.5f;
 		_currentDistance = _currentPosition - _startPosition;
 
+		//Debug.Log(_currentDistance);
+
 		GameObject.Find("DistanceCounter").GetComponent<Text>().text = "Distance: " + _currentDistance;
 
 		if(Player1 == null && Player2 == null)

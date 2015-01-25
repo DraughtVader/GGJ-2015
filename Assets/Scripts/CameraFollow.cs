@@ -52,20 +52,25 @@ public class CameraFollow : MonoBehaviour
         float x = Vector2.Distance(Left().position, Right().position);
         float y = Vector2.Distance(Top().position, Bottom().position);
         Vector3 m;
+        float newCamSize;
 
         if (x > y * 16/9)
         {
             m = MidPoint(Left().position, Right().position);
-            gameObject.GetComponent<Camera>().orthographicSize = x / 3f;
+            newCamSize = x / 3.25f;
         }
         else
         {
             m = MidPoint(Top().position, Bottom().position);
-            gameObject.GetComponent<Camera>().orthographicSize = (y * 16 / 9) / 3f;
+            newCamSize = (y * 16 / 9) / 3.25f;
         }
 
-        if (gameObject.GetComponent<Camera>().orthographicSize < CameraMinSize)
-            gameObject.GetComponent<Camera>().orthographicSize = CameraMinSize;
+
+        if (newCamSize < CameraMinSize)
+            newCamSize = CameraMinSize;
+
+        gameObject.GetComponent<Camera>().orthographicSize = newCamSize;
+        //gameObject.GetComponent<Camera>().orthographicSize = Mathf.Lerp(gameObject.GetComponent<Camera>().orthographicSize, newCamSize, 1);
 
         this.transform.position = new Vector3(m.x, m.y, -10.0f);
     }
