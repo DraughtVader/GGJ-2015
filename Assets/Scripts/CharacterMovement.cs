@@ -31,7 +31,7 @@ public class CharacterMovement : MonoBehaviour
         {
 			this.rigidbody2D.velocity = Input.GetAxis(XAxis) * Speed * Vector2.right + Input.GetAxis(YAxis) * Speed * Vector2.up;
 
-			if(this.gameObject.GetComponent<AudioSource>().audio.isPlaying())
+			if(this.gameObject.GetComponent<AudioSource>().audio.isPlaying)
 				this.gameObject.GetComponent<AudioSource>().audio.Play();
 
 			if (HasGun)
