@@ -6,6 +6,9 @@ public class EnemySpawnerScript : MonoBehaviour {
     public GameObject MeleeEnemy;
 
     public float difficulty = 0, incDiff = 0.001f;
+    public float MaxNumber = 50;
+
+    public static int TotalNumber = 0;
 
 	// Use this for initialization
 	void Start () 
@@ -15,9 +18,13 @@ public class EnemySpawnerScript : MonoBehaviour {
 	
     void Spawn()
     {
+        if (TotalNumber > MaxNumber)
+            return;
+
         Instantiate(MeleeEnemy, (getRandomNormalizedVector() * 600) + (Vector2)this.transform.position, this.transform.rotation);
         if (difficulty < 0.999f)
             difficulty += incDiff;
+        TotalNumber++;
     }
 
 	IEnumerator SpawnCo()

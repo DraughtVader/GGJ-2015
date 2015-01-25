@@ -33,6 +33,8 @@ public class Shoot : MonoBehaviour {
         var angle = Mathf.Atan2(_shootDirection.y, _shootDirection.x) * Mathf.Rad2Deg;
         bullet.transform.Rotate(new Vector3(0, 0, angle));
 
+        GameObject.Find("Gun").GetComponent<Animator>().Play("Shoot");
+
         if (_shootDirection.x < 0)
         {
             bullet.transform.localScale = new Vector3(1, -1, 1);
