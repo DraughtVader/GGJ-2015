@@ -23,12 +23,21 @@ public class FieldManager : MonoBehaviour
         }
 
         _fields = _fields.OrderBy(x => x.transform.position.y).ToList();
-        for (int i = 0; i < 2; i++)
+        int fieldIndex = _fields.IndexOf(this.transform);
+        switch (fieldIndex)
         {
-            FieldMarkingsNumbers[i] = (i + 1) * 10 * (_fields.IndexOf(this.transform)+1);
-            _fieldMarkings[i] = transform.GetChild(2).transform.GetChild(i).gameObject;
-            _fieldMarkings[i].transform.GetChild(0).GetComponent<Text>().text = ""+FieldMarkingsNumbers[i];
-            _fieldMarkings[i].transform.GetChild(1).GetComponent<Text>().text = ""+FieldMarkingsNumbers[i];
+            case 0:
+                FieldMarkingsNumbers[0] = 10;
+                FieldMarkingsNumbers[1] = 20;
+                break;
+            case 1:
+                FieldMarkingsNumbers[0] = 30;
+                FieldMarkingsNumbers[1] = 40;
+                break;
+            case 2:
+                FieldMarkingsNumbers[0] = 50;
+                FieldMarkingsNumbers[1] = 60;
+                break;
         }
     }
 
