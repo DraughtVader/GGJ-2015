@@ -22,10 +22,12 @@ public class Shoot : MonoBehaviour {
             ShootBullet();
             IsShooting = true;
             _canShoot = false;
+			audio.Play();
             StartCoroutine(FireDelay(ShootDelay));
         }
         else
             IsShooting = false;
+			audio.Stop();
 	}
 
 	public void ShootBullet ()
