@@ -2826,11 +2826,11 @@ AudioSource:
   serializedVersion: 3
   m_audioClip: {fileID: 8300000, guid: 24fb7c9e40ad44997994612b5aaec0b2, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: .899999976
+  m_Volume: 1
   m_Pitch: 1
   Loop: 1
   Mute: 0
-  Priority: 128
+  Priority: 235
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -4007,6 +4007,14 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+    - target: {fileID: 8294784, guid: 207684db783f46c45b739828e061c76b, type: 2}
+      propertyPath: m_Volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8294784, guid: 207684db783f46c45b739828e061c76b, type: 2}
+      propertyPath: Priority
+      value: 235
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 207684db783f46c45b739828e061c76b, type: 2}
   m_RootGameObject: {fileID: 825348142}
