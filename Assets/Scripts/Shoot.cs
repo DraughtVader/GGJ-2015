@@ -8,6 +8,7 @@ public class Shoot : MonoBehaviour {
 	public float ShootDelay;
 	public GameObject Bullet;
 	public float AmmoCount = 0.0f;
+    public bool IsShooting = false;
 
 	private Vector3 _shootDirection;
 	private bool _canShoot = true;
@@ -17,11 +18,14 @@ public class Shoot : MonoBehaviour {
 	void Update () 
 	{
         if ((Input.GetAxisRaw(Fire) > 0) && (this.GetComponentInParent<CharacterMovement>().IsSnapped) && (this.GetComponentInParent<CharacterMovement>().HasGun) && _canShoot)
-		{
-			ShootBullet();
-			_canShoot = false;
-			StartCoroutine(FireDelay(ShootDelay));
-		}
+        {
+            ShootBullet();
+            IsShooting = true;
+            _canShoot = false;
+            StartCoroutine(FireDelay(ShootDelay));
+        }
+        else
+            IsShooting = false;
 	}
 
 	public void ShootBullet ()
