@@ -21,10 +21,12 @@ public class Shoot : MonoBehaviour {
         {
             ShootBullet();
 			IsShooting = true;
-			canShoot = false;
+			_canShoot = false;
 
-			if(!this.gameObject.GetComponent<AudioSource>().audio.isPlaying())
+			if(!this.gameObject.GetComponent<AudioSource>().audio.isPlaying)
 				this.gameObject.GetComponent<AudioSource>().audio.Play();
+
+            Debug.Log(this.gameObject.GetComponent<AudioSource>().audio.isPlaying);
 
             StartCoroutine(FireDelay(ShootDelay));
         }
