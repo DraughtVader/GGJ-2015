@@ -20,8 +20,12 @@ public class Shoot : MonoBehaviour {
         if ((Input.GetAxisRaw(Fire) > 0) && (this.GetComponentInParent<CharacterMovement>().IsSnapped) && (this.GetComponentInParent<CharacterMovement>().HasGun) && _canShoot)
         {
             ShootBullet();
-            IsShooting = true;
-            _canShoot = false;
+			IsShooting = true;
+			canShoot = false;
+
+			if(!this.gameObject.GetComponent<AudioSource>().audio.isPlaying())
+				this.gameObject.GetComponent<AudioSource>().audio.Play();
+
             StartCoroutine(FireDelay(ShootDelay));
         }
         else
@@ -35,7 +39,6 @@ public class Shoot : MonoBehaviour {
 		var bullet = Instantiate(Bullet, GetComponentInParent<Transform>().position, Quaternion.identity) as GameObject;
 		bullet.GetComponent<BulletMovement>().Direction = _shootDirection;
 
-		this.gameObject.GetComponent<AudioSource>().audio.Play();
 
         var angle = Mathf.Atan2(_shootDirection.y, _shootDirection.x) * Mathf.Rad2Deg;
         bullet.transform.Rotate(new Vector3(0, 0, angle));
@@ -53,4 +56,5 @@ public class Shoot : MonoBehaviour {
 		yield return new WaitForSeconds(delay);
 		_canShoot = true;
 	}
+	
 }
