@@ -38,9 +38,9 @@ public class GunMovement : MonoBehaviour
         }
         else if (coll.gameObject.tag == "SideBounds") 
         {
-            print("GameOver");
             Time.timeScale = 0;
             GameObject.Find("GameOverText").GetComponent<Text>().text = "GAME OVER";
+            Game.GameOver = true;
         }
     }
 }
