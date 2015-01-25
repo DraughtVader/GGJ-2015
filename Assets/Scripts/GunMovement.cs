@@ -47,11 +47,15 @@ public class GunMovement : MonoBehaviour
             if (coll.name == _lastPlayer)
                 return;
             coll.gameObject.GetComponent<CharacterMovement>().HasGun = coll.gameObject.GetComponent<CharacterMovement>().IsSnapped = true;
+			this.gameObject.GetComponent<AudioSource>().audio.Play();
             Held = true;
             _lastPlayer = coll.name;
         }
         else if (coll.gameObject.tag == "SideBounds") 
         {
+            GameObject.Find("GameOverText").GetComponent<Animator>().SetTrigger("GameOver");
+            GameObject.Find("DistanceRecord").GetComponent<Text>().text = 
+            GameObject.Find("DistanceRecordShadow").GetComponent<Text>().text = "Distance: " + DistanceTracker.CurrentDistance;
             Time.timeScale = 0;
             GameObject.Find("GameOverText").GetComponent<Text>().text = "GAME OVER";
             Game.GameOver = true;
