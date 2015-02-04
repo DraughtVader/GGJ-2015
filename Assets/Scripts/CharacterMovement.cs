@@ -32,7 +32,7 @@ public class CharacterMovement : MonoBehaviour
 			this.rigidbody2D.velocity = Input.GetAxis(XAxis) * Speed * Vector2.right + Input.GetAxis(YAxis) * Speed * Vector2.up;
 
 			if(!this.gameObject.GetComponent<AudioSource>().audio.isPlaying)
-				this.gameObject.GetComponent<AudioSource>().audio.Play();
+				audio.Play();
 
 			if (HasGun)
             {
@@ -41,11 +41,7 @@ public class CharacterMovement : MonoBehaviour
         }
 
 		if(this.rigidbody2D.velocity.magnitude == 0.0f)
-			this.gameObject.GetComponent<AudioSource>().audio.Stop();
-
-        if (HasGun)
-			_gun.transform.position = this.transform.position;
-			this.gameObject.GetComponent<AudioSource>().audio.Stop();
+			audio.Pause();
 
 		if(IsSnapped)
         {

@@ -4,8 +4,16 @@ using System.Collections;
 public class Game : MonoBehaviour  {
 
     public static bool GameOver = false;
+	public AudioClip DuringGameAudio;
+	public AudioClip GameOverAudio;
 
-    void Update()
+    void Start()
+	{
+		this.gameObject.GetComponent<AudioSource>().clip = DuringGameAudio;
+		audio.loop = true;
+		audio.Play();
+	}
+	void Update()
     {
         
         if (!GameOver)
@@ -17,5 +25,13 @@ public class Game : MonoBehaviour  {
             Time.timeScale = 1f;
             Application.LoadLevel(0);
         }
+
+		if(GameOver)
+		{
+			audio.Pause();
+			this.gameObject.GetComponent<AudioSource>().clip = GameOverAudio;
+			audio.Play();
+			audio.loop = false;
+		}
     }
 }

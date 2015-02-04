@@ -12,6 +12,7 @@ public class MeleeEnemyMovement : MonoBehaviour {
 
     public float Speed = 10;
     public bool Dead;
+	public AudioClip attackGrunt;
 
 	void Start () 
     {
@@ -64,6 +65,8 @@ public class MeleeEnemyMovement : MonoBehaviour {
             _anim.Play("EnemyAttacking");
             _isAttacking = true;
             _playerID = coll.gameObject.name;
+			this.GetComponent<AudioSource>().clip = attackGrunt;
+			audio.PlayOneShot(attackGrunt, 1.0f);
 
             if (rigidbody2D.velocity.y < 0)
                 transform.localScale = new Vector3(1, -1, 1) * 2;

@@ -503,7 +503,6 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Priority: 3
   ignoreReversedGraphics: 1
   blockingObjects: 0
   m_BlockingMask:
@@ -732,6 +731,10 @@ Prefab:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: e49b7eaf49c654c4fa96c5bb75745037, type: 2}
+    - target: {fileID: 8284284, guid: 03b6db4c85d183e40889dddae419d927, type: 2}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 03b6db4c85d183e40889dddae419d927, type: 2}
   m_RootGameObject: {fileID: 1831370626}
@@ -780,6 +783,10 @@ Prefab:
       propertyPath: m_PlayOnAwake
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8236118, guid: 3cbba74a95b7ee3488bb61b2d10125b9, type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 782c9184ff8a84912b0c282f311b3966, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3cbba74a95b7ee3488bb61b2d10125b9, type: 2}
   m_RootGameObject: {fileID: 307202844}
@@ -1598,6 +1605,10 @@ Prefab:
       propertyPath: Player2
       value: 
       objectReference: {fileID: 825348142}
+    - target: {fileID: 8200000, guid: 422259a97bd5f472cb76c7d4fa58f6de, type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: f620869a327d54c1e9e9cc4d5f9a7c68, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 422259a97bd5f472cb76c7d4fa58f6de, type: 2}
   m_RootGameObject: {fileID: 636682901}
@@ -1848,7 +1859,7 @@ AudioSource:
   m_GameObject: {fileID: 586007638}
   m_Enabled: 1
   serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: 03788fa9f2ca445c3961ae838564a762, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 782c9184ff8a84912b0c282f311b3966, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -2297,6 +2308,7 @@ GameObject:
   - 114: {fileID: 636682907}
   - 61: {fileID: 636682908}
   - 114: {fileID: 636682909}
+  - 82: {fileID: 636682910}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2415,6 +2427,66 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d844473ce01f26346b99d608228fe642, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DuringGameAudio: {fileID: 8300000, guid: 52ac3eba4ad7d4a6daebad914403352a, type: 3}
+  GameOverAudio: {fileID: 8300000, guid: 5812e4f84a16a411d8e9ecb86bd7b3f4, type: 3}
+--- !u!82 &636682910
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 636682901}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: .699999988
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!1 &643386439
 GameObject:
   m_ObjectHideFlags: 0
@@ -3080,7 +3152,6 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Priority: 3
   ignoreReversedGraphics: 1
   blockingObjects: 0
   m_BlockingMask:
@@ -3269,7 +3340,6 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Priority: 3
   ignoreReversedGraphics: 1
   blockingObjects: 0
   m_BlockingMask:
@@ -3715,7 +3785,6 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Priority: 3
   ignoreReversedGraphics: 1
   blockingObjects: 0
   m_BlockingMask:
@@ -4444,7 +4513,7 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Priority: 128
   DopplerLevel: 1
