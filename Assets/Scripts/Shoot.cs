@@ -29,12 +29,6 @@ public class Shoot : MonoBehaviour {
 			IsShooting = false;
 		}
 
-		if(IsShooting && !audio.isPlaying)
-			audio.Play();
-		else
-			audio.Pause();
-
-		Debug.Log(this.gameObject.GetComponent<AudioSource>().audio.isPlaying);
 	}
 
 	public void ShootBullet ()
@@ -46,7 +40,7 @@ public class Shoot : MonoBehaviour {
 
         var angle = Mathf.Atan2(_shootDirection.y, _shootDirection.x) * Mathf.Rad2Deg;
         bullet.transform.Rotate(new Vector3(0, 0, angle));
-
+        GameObject.Find("Bullet Sound").audio.Play();
         GameObject.Find("Gun").GetComponent<Animator>().Play("Shoot");
 
         if (_shootDirection.x < 0)
