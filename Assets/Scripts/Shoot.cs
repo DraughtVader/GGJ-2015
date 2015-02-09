@@ -22,11 +22,13 @@ public class Shoot : MonoBehaviour {
             ShootBullet();
 			IsShooting = true;
 			_canShoot = false;
+			GameObject.FindGameObjectWithTag("MainCamera").GetComponent<ScreenShake>().IsShaking = true;
             StartCoroutine(FireDelay(ShootDelay));
         }
         else
 		{   
 			IsShooting = false;
+			GameObject.FindGameObjectWithTag("MainCamera").GetComponent<ScreenShake>().IsShaking = false;
 		}
 
 		if(IsShooting && !audio.isPlaying)
