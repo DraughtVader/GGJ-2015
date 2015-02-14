@@ -288,7 +288,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 458948, guid: 1abaff6a7eeaf4ea18fef7bc695b986f, type: 2}
       propertyPath: m_RootOrder
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1abaff6a7eeaf4ea18fef7bc695b986f, type: 2}
@@ -465,6 +465,10 @@ Prefab:
       propertyPath: Player2
       value: 
       objectReference: {fileID: 825348142}
+    - target: {fileID: 100010, guid: 422259a97bd5f472cb76c7d4fa58f6de, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 422259a97bd5f472cb76c7d4fa58f6de, type: 2}
   m_RootGameObject: {fileID: 636682901}
@@ -778,7 +782,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 03b6db4c85d183e40889dddae419d927, type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 9500000, guid: 03b6db4c85d183e40889dddae419d927, type: 2}
       propertyPath: m_Controller
@@ -2767,7 +2771,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 464532, guid: 3cbba74a95b7ee3488bb61b2d10125b9, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 11454664, guid: 3cbba74a95b7ee3488bb61b2d10125b9, type: 2}
       propertyPath: ShootDelay
@@ -3205,7 +3209,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 458948, guid: 1abaff6a7eeaf4ea18fef7bc695b986f, type: 2}
       propertyPath: m_RootOrder
-      value: 11
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1abaff6a7eeaf4ea18fef7bc695b986f, type: 2}
@@ -3389,7 +3393,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1332428290
 Transform:
   m_ObjectHideFlags: 0
@@ -3641,7 +3645,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 411414, guid: 38a345971164b4324bd8a2a2d66507e7, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 11411414, guid: 38a345971164b4324bd8a2a2d66507e7, type: 2}
       propertyPath: Player1
@@ -3972,7 +3976,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 475960, guid: 207684db783f46c45b739828e061c76b, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 207684db783f46c45b739828e061c76b, type: 2}
       propertyPath: m_LocalPosition.x
